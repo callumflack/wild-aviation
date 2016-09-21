@@ -1,0 +1,64 @@
+
+
+// --------------------------------------------------------------------------
+//   FLEX ALIGNER OBJECT
+//   See: https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/
+// --------------------------------------------------------------------------
+
+
+@mixin o-aligner {
+	display: flex;
+	align-items: center;
+	min-height: 100%;
+	justify-content: center;
+}
+
+@mixin o-aligner-item {
+	flex: 1;
+}
+
+.o-aligner {
+	@include o-aligner;
+}
+
+.o-aligner-item {
+	@include o-aligner-item;
+}
+
+.o-aligner-item--top {
+	align-self: flex-start;
+}
+
+.o-aligner-item--bottom {
+	align-self: flex-end;
+}
+
+.o-aligner-item--fixed {
+	flex: none;
+	max-width: 50%;
+}
+
+
+// --------------------------------------------------------------------------
+//   VERTICAL ALIGNER
+//   Ripped from: instrument.com
+// --------------------------------------------------------------------------
+
+
+.o-ghost {
+    font-size: 0;
+    height: inherit;
+}
+
+.o-ghost:before {
+    content: "";
+    height: 100%;
+    margin-left: -1px;
+    width: 1px;
+}
+
+.o-ghost:before,
+.o-ghost-child {
+    display: inline-block;
+    vertical-align: middle;
+}

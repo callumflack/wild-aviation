@@ -1,0 +1,52 @@
+
+
+// --------------------------------------------------------------------------
+//   SELECT FORM COMPONENT
+// --------------------------------------------------------------------------
+
+
+// http://bavotasan.com/2011/style-select-box-using-only-css/
+// http://red-team-design.com/making-html-dropdowns-not-suck/
+
+.t-selectInputs {
+	@include textRg();
+	background-color: rgba( palette(brand-counter), 0.05);
+	border: 1px solid rgba( palette(brand-counter), 0.7);
+	border-radius: map-fetch($border-radius, small);
+	margin-left: 45px;
+	margin-bottom: space(0.5);
+	padding: 2px 5px 2px 8px;
+	position: relative;
+	width: auto;
+
+	@include media-breakpoint-up(xs) {
+		width: 50%;
+	}
+
+	// Reset
+	select {
+		border: 0;
+		background-color: transparent;
+		display: inline-block;
+		width: 100%;
+		-moz-appearance: window;
+		-webkit-appearance: none;
+	}
+
+	&:after {
+		border-top: .3em solid;
+		border-left: .3em solid transparent;
+		border-right: .3em solid transparent;
+		color: palette(brand-counter);
+		content: "";
+		display: block;
+		height: 0;
+		margin-left: .35rem;
+		position: absolute;
+		right: space(0.5);
+		top: 50%;
+		transform: translateY(rem(-2));
+		vertical-align: middle;
+		width: 0;
+	}
+}

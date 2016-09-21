@@ -1,0 +1,243 @@
+
+
+// --------------------------------------------------------------------------
+//    BUTTONS
+// --------------------------------------------------------------------------
+
+
+@mixin buttonTheme() {
+	@include baseTransition();
+	border-color: palette(text);
+	border-radius: 3px;
+	border-style: solid;
+	border-width: 1px;
+	padding: 0 space(1);
+
+    @include media-breakpoint-up(sm) {
+        min-width: 30%;
+    }
+
+    // theme unused
+    // border-color: currentColor comes from Suit…
+    //border-color: palette(brand);
+    //border-radius: map-fetch($border-radius, base);
+    //background-color: rgba( palette(brand), 1 );
+	// transition: all transition(duration, short) transition(type, base);
+	// vertical-align: top; // 1.
+
+	a {
+
+	}
+
+	&[disabled] {
+		border-color: palette(muted);
+		background-color: palette(muted);
+		cursor: not-allowed;
+		opacity: 0.4;
+	}
+
+	@include on-event() {
+		background-color: currentColor;
+		outline: none !important;
+
+        // theme unused
+        //opacity: 0.5;
+	}
+}
+
+@mixin buttonText() {
+    @include typeReset();
+    @include textRg();
+    background-color: palette(text);
+    color: palette(background);
+    font-family: $font-text-medium;
+    line-height: map-fetch($button-height, base);
+    padding-top: $inputLineHeightAdjustment;
+
+    // theme unused
+    //color: palette(brand);
+    //font-family: $font-button;
+    //font-size: fontsize(text--sm, xs);
+    //letter-spacing: 0.05em;
+
+    @include on-event() {
+        background-color: palette(brand);
+        border-color: palette(brand);
+        color: palette(white);
+    }
+}
+
+
+// Primary button
+// --------------------------------------------------------------------------
+
+@mixin button() {
+	@include buttonTheme();
+	@include buttonText();
+}
+
+.t-button {
+	@include button;
+}
+
+//.t-button--brand {
+//	@include button;
+//	background-color: palette(brand);
+//	border-color: palette(brand);
+//}
+//
+//.t-button--rev {
+//	@include button;
+//	background-color: transparent;
+//	border-color: currentColor;
+//	border-width: 1px;
+//}
+//
+//.t-button--full {
+//	//@include button;
+//	text-align: center;
+//	width: 100%;
+//}
+//
+//
+//// Secondary buttons
+//// --------------------------------------------------------------------------
+//
+////@mixin textButtonSm(
+////	$mixinColor: palette(brand-complement),
+////	$mixinBorderColor: $mixinColor
+////) {
+////	@include typeReset();
+////	color: $mixinColor;
+////	font-family: $font-button;
+////	font-size: fontsize(text--sm, xs);
+////	letter-spacing: 0.05em;
+////	line-height: map-fetch($button-height, concise);
+////	text-transform: uppercase;
+////
+////	@include media-breakpoint-up(sm) {
+////		font-size: fontsize(text--sm, rg);
+////	}
+////
+////	@include on-event() {
+////		// border-color: rgba( $mixinBorderColor, 0.5);
+////		// color: rgba( $mixinColor, 0.5);
+////		color: $mixinColor;
+////	}
+////}
+////
+////@mixin buttonSecondary() {
+////	@include buttonTheme();
+////	@include textButtonSm();
+////	background-color: transparent;
+////	border-color: currentColor;
+////	border-width: 1px;
+////	line-height: map-fetch($button-height, concise) !important;
+////	padding-top: 1px;
+////
+////	@include on-event() {
+////	}
+////}
+////
+////.t-buttonSecondary {
+////	@include buttonSecondary();
+////}
+//
+//
+//// Invisible button (for holding the touch space & layout)
+//// --------------------------------------------------------------------------
+//
+////@mixin buttonInvisible () {
+////	@include buttonTheme();
+////	@include textButtonSm($mixinColor: palette(brand) );
+////	background-color: transparent;
+////	border-color: transparent;
+////	padding: 0 0 0 space(0.75);
+////	text-transform: none;
+////
+////	@include on-event() {
+////		color: palette(brand);
+////	}
+////}
+////
+////.t-buttonInvisible {
+////	@include buttonInvisible();
+////}
+//
+//
+//// Button sizes
+//// --------------------------------------------------------------------------
+//
+////.t-button {
+////	@include button;
+////
+////	&--md {
+////		line-height: map-fetch($button-height, base);
+////		text-align: center;
+////		width: space(5);
+////
+////		@include media-breakpoint-up(xs) {
+////			width: space(6);
+////		}
+////	}
+////
+////	&--lg {
+////		line-height: map-fetch($button-height, large);
+////		text-align: center;
+////		width: 100%;
+////
+////		@include media-breakpoint-up(sm) {
+////			width: space(12);
+////		}
+////	}
+////
+////	&--full {
+////		line-height: map-fetch($button-height, large);
+////		text-align: center;
+////		width: 100%;
+////	}
+////}
+////
+////.t-xs-button {
+////	@include media-breakpoint-up(xs) {
+////		&--md {
+////			line-height: map-fetch($button-height, base);
+////			text-align: center;
+////			width: space(6);
+////		}
+////	}
+////}
+//
+//
+//// Close button (this just positions an icon)
+//// --------------------------------------------------------------------------
+//
+//.t-buttonClose {
+//	color: palette(brand);
+//	position: fixed;
+//	right: space(0.5);
+//	top: space(0.5);
+//	z-index: map-fetch($z-index, first);
+//
+//	@include on-event() {
+//		outline: none;
+//	}
+//
+//	@include media-breakpoint-up(xs) {
+//		right: space(1);
+//		top: 31px;
+//	}
+//}
+//
+//
+//
+//// Subtitle
+//// --------------------------------------------------------------------------
+//
+//// use this to vertically align elements with a button
+//// .ButtonLineHeight {
+////     line-height: map-fetch($button-height, base);
+////     vertical-align: bottom;
+//// }
+//
+//// padding-top: 2px; // theme typography alignment

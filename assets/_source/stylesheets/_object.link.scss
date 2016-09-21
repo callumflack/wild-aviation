@@ -1,0 +1,114 @@
+
+
+// --------------------------------------------------------------------------
+//   OBJECT: LINKS
+// --------------------------------------------------------------------------
+
+
+// Theme: link
+
+a {
+	@include baseTransition();
+	//border-bottom: 1px solid rgba( palette(text), 0.2 );
+
+	@include on-event() {
+		@include baseTransition();
+		//border-color: rgba( palette(text), 1 );
+	}
+}
+
+p a,
+li a {
+	@include on-event() {
+		// background-color: palette(brand);
+	}
+}
+
+
+// Object: buried anchors
+// Same pattern as Suit's u-linkComplex, but different styling.
+// --------------------------------------------------------------------------
+
+@mixin complexLink {
+	display: block;
+	width: 100%;
+
+	@include on-event() {
+		.o-linkBuriedTarget {
+			background-color: palette(brand);
+		}
+	}
+}
+
+.o-linkBuried {
+	@include complexLink();
+	margin-bottom: space(0.5);
+}
+
+// Don't forget: this is a span, not an <a>,
+// so it needs these styles.
+.o-linkBuriedTarget {
+	@include baseTransition();
+	color: palette(text);
+}
+
+
+// Component: control underlines with linear-gradient
+// --------------------------------------------------------------------------
+
+$linkRuleBlack: linear-gradient(to bottom, rgba(palette(dark),0) 50%,  rgba(palette(dark),0.4) 50%);
+$linkRuleGrey:  linear-gradient(to bottom, rgba(palette(muted),0) 50%, palette(muted) 50%);
+$linkRuleLite:  linear-gradient(to bottom, rgba(palette(light),0) 50%, palette(light) 50%);
+$linkRuleWhite: linear-gradient(to bottom, rgba(palette(white),0) 50%, palette(white) 50%);
+$linkRuleBrand: linear-gradient(to bottom, rgba(palette(brand),0) 50%, palette(brand) 50%);
+$linkRuleNone:  linear-gradient(to bottom, rgba(palette(dark),0) 50%,  rgba(palette(dark),0) 50%);
+
+@mixin underlineLink(
+	$mixin-rule: $linkRuleBlack,
+	$mixin-hover-rule: none,
+	$mixin-color: currentColor,
+	$mixin-hover-color: inherit,
+	// $mixin-hover-color: currentColor,
+	$mixin-inverse: false
+
+) {
+
+	@if $mixin-rule == 'none' {
+		background-image: none;
+		padding-bottom: 0;
+	}
+
+	@else {
+		background-image: $mixin-rule;
+		background-repeat: repeat-x;
+		background-size: 1px 1px;
+		background-position: 0 100%;
+		color: $mixin-color;
+		padding-bottom: 0;
+		text-decoration: none;
+	}
+
+	@include on-event() {
+		background-image: $mixin-hover-rule;
+		color: $mixin-hover-color;
+		text-decoration: none;
+	}
+}
+
+.o-link { @include underlineLink(); }
+.o-childLink { a { @include underlineLink(); } }
+
+.o-linkGrey { @include underlineLink($mixin-rule: $linkRuleGrey); }
+.o-childLinkGrey { a { @include underlineLink($mixin-rule: $linkRuleGrey); } }
+
+.o-linkLite { @include underlineLink($mixin-rule: $linkRuleLite); }
+.o-childLinkLite { a { @include underlineLink($mixin-rule: $linkRuleLite); } }
+
+.o-linkBrand { @include underlineLink($mixin-rule: $linkRuleBrand); }
+.o-childLinkBrand { a { @include underlineLink($mixin-rule: $linkRuleBrand); } }
+
+.o-linkWhite { @include underlineLink($mixin-rule: $linkRuleWhite); }
+.o-childLinkWhite { a { @include underlineLink($mixin-rule: $linkRuleWhite); } }
+
+.o-linkInvisible { @include underlineLink(none); }
+.o-childLinkInvisible { a { @include underlineLink(none); } }

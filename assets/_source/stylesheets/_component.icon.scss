@@ -1,0 +1,24 @@
+
+
+// --------------------------------------------------------------------------
+//   COFFEE SECRETS ICON
+// --------------------------------------------------------------------------
+
+
+.c-icon {
+	width: 179px;
+	height: 70px;
+
+	//cursor: pointer;
+	display: inline-block;
+    //fill: currentColor; // The color of the SVG will inherit the parent's `color`.
+    fill: palette(brand);
+	line-height: 1;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+
+	@include on-event() {
+		outline: 0;
+	}
+}

@@ -1,0 +1,283 @@
+
+
+// --------------------------------------------------------------------------
+//   FUNCTIONS
+//   These are mostly passed into mixins, so source them before mixins.
+// --------------------------------------------------------------------------
+
+
+// Access nested maps
+// --------------------------------------------------------------------------
+// TODO: add an error message, like:
+// @if ($value == null) {
+//  @error "The value '#{$key}' doesn't exist in the map."; }
+// See: https://gist.github.com/jlong/8760275
+// See: OUI:partials:elements:functions
+// See: http://codepen.io/jakealbaugh/post/using-sass-functions-to-access-complex-variable-maps
+
+@function map-fetch($map, $keys...) {
+	$value: $map;
+	@each $key in $keys {
+		$value: map-get($value, $key);
+	}
+	@return $value;
+}
+
+// Example:
+
+$config: (
+  themes: (
+	mist: (
+	  header: #dcfac0,
+	  content: #00968b,
+	  footer: #85c79c
+	),
+	spring: (
+	  header: #f4fac7,
+	  content: #c2454e,
+	  footer: #ffb158
+	)
+  )
+);
+
+// get the mist header color #dcfac0:
+// map-fetch($config, "themes", "mist", "header")
+
+// print each value from the map to a class:
+@each $theme in map-keys( map-get($config, "themes") ) {
+
+  .#{$theme} {
+	.header  { background-color: map-fetch($config, "themes", $theme, "header"  ); }
+	.content { background-color: map-fetch($config, "themes", $theme, "content" ); }
+	.footer  { background-color: map-fetch($config, "themes", $theme, "footer"  ); }
+  }
+
+}
+
+// OUI map-fetch
+// @function map-fetch($map, $keys) {
+//   $key: nth($keys, 1);
+//   $length: length($keys);
+//   $value: map-get($map, $key);
+//   @if ($length > 1) {
+//     $rest: ();
+//     @for $i from 2 through $length {
+//       $rest: append($rest, nth($keys, $i));
+//     }
+//     @if ($value == null) {
+//       @error "The value '#{$key}' doesn't exist in the map.";
+//     }
+//     @return map-fetch($value, $rest)
+//   } @else {
+//     @if ($value == null) {
+//       @error "The value '#{$key}' doesn't exist in the map.";
+//     }
+//     @return $value;
+//   }
+// }
+
+// Debuggin sass maps
+// Can't get this to work ATM but could be useful.
+// http://www.sitepoint.com/debugging-sass-maps/
+
+@mixin debug-map($map) {
+	@at-root {
+		@debug-map {
+			__toString__: inspect($map);
+			__length__: length($map);
+			__depth__: depth($map);
+			__keys__: map-keys($map);
+			__properties__ {
+				@each $key, $value in $map {
+					#{'(' + type-of($value) + ') ' + $key}: inspect($value);
+				}
+			}
+		}
+	}
+}
+
+
+// Spin-out map-fetch functions for most-used styles.
+// Done as functions, not mixins, so we can use them within
+// standard style lists, e.g. color: palette();
+// See:
+// http://www.bigeng.io/how-we-use-sass-maps-for-design-tokens-and-developer-happiness/
+// http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/
+// @function palette($palette, $tone: 'base') {
+//     @return map-get(map-get($palettes, $palette), $tone);
+// }
+
+// @function color($type: 'ui', $increment: 'base') {
+//     @return map-fetch($color, $type, $increment);
+// }
+
+@function palette($hue: 'grey-25') {
+	@return map-fetch($palette, $hue);
+}
+
+@function size($type: 'font', $increment: 'text') {
+	@return map-fetch($size, $type, $increment);
+}
+
+@function container-width($width: 'lg') {
+	@return map-get($container-max-widths, $width);
+}
+
+@function fontsize($increment: 'Text', $response: 'sm') {
+	// @return map-fetch($size, font, $increment, $response);
+	@return map-fetch($fontsizes, $increment, $response);
+}
+
+@function transition($property: 'duration', $response: 'short') {
+	@return map-fetch($transition, $property, $response);
+}
+
+// I think this is a Giraudel function…
+// @link http://sass-guidelin.es/#errors
+// @link https://jonsuh.com/blog/organizing-z-index-with-sass/
+
+@function font-weight($key) {
+	@if not map-has-key($font-weight, $key) {
+		@error 'There is no key named `#{$key}` in $font-weights. '
+			 + 'Key should be one of #{map-keys($font-weight)}.';
+	}
+
+	@return map-get($font-weight, $key);
+}
+
+@mixin font-weight($key) {
+	// font-family: $font;
+	font-weight: font-weight($key);
+}
+
+
+// Tint
+// --------------------------------------------------------------------------
+
+@function tint($current-color, $percent) {
+	@return mix(#FFF, $current-color, $percent);
+}
+
+
+// Spacer computation
+// --------------------------------------------------------------------------
+// See: https://gist.github.com/jlong/8760275
+// See: OUI:partials:elements:functions
+
+// @function spacer($value) {
+//   @if ($value * 2) % 1 != 0 {
+//     @warn 'Spacer value must be a multiple of 0.5';
+//     @return 'Spacer value must be a multiple of 0.5';
+//   } @else {
+//     @return $spacer-unit * $value;
+//   }
+// }
+
+@function space($value) {
+	@return $space-unit * $value;
+}
+
+
+// Scut strip unit
+// --------------------------------------------------------------------------
+// http://davidtheclark.github.io/scut/strip-unit.html
+
+@function scut-strip-unit (
+	$num
+) {
+
+	@return $num / ($num * 0 + 1);
+
+}
+
+
+// Scut px to rem
+// --------------------------------------------------------------------------
+// http://davidtheclark.github.io/scut/rem.html
+// Requires: `scut-strip-unit`.
+// Renamed rem() from scut-rem() for ease of use.
+
+$scut-rem-base: 16 !default;
+
+@function rem (
+	$pixels
+) {
+
+	$rem-vals: ();
+	@each $val in $pixels {
+		$val-in-rems: scut-strip-unit($val) / $scut-rem-base * 1rem;
+		$rem-vals: append($rem-vals, $val-in-rems);
+	}
+
+	@if length($rem-vals) == 1 {
+		// return a single value instead of a list,
+		// so it can be used in calculations
+		@return nth($rem-vals, 1);
+	}
+	@else {
+		@return $rem-vals;
+	}
+
+}
+
+
+// Scut font-face
+// --------------------------------------------------------------------------
+// http://davidtheclark.github.io/scut/font-face.html
+// Renamed font-face() from scut-font-face() for ease of use.
+// Original $formats: eot woff2 woff ttf svg
+
+@function main-src($formats, $file-path, $font-family) {
+	// Return the list of `src` values, in order, that
+	// a good `@font-face` will need, including only
+	// those formats specified in the list `$formats`.
+	$result: ();
+	@if index($formats, eot) {
+		$eot-val: url('#{$file-path}.eot?#iefix') format('embedded-opentype');
+		$result: append($result, $eot-val, comma);
+	}
+	@if index($formats, woff2) {
+		$woff2-val: url('#{$file-path}.woff2') format('woff2');
+		$result: append($result, $woff2-val, comma);
+	}
+	@if index($formats, woff) {
+		$woff-val: url('#{$file-path}.woff') format('woff');
+		$result: append($result, $woff-val, comma);
+	}
+	@if index($formats, ttf) {
+		$ttf-val: url('#{$file-path}.ttf') format('truetype');
+		$result: append($result, $ttf-val, comma);
+	}
+	@if index($formats, svg) {
+		$svg-val: url('#{$file-path}.svg##{$font-family}') format('svg');
+		$result: append($result, $svg-val, comma);
+	}
+	@return $result;
+}
+
+@mixin font-face (
+	$font-family,
+	$file-path,
+	$weight: normal,
+	$style: normal,
+	$formats: eot woff ttf svg
+) {
+
+	@if index('italic' 'oblique', $weight) {
+		$style: $weight;
+		$weight: normal;
+	}
+
+	@font-face {
+		font-family: $font-family;
+		font-weight: $weight;
+		font-style: $style;
+
+		@if index($formats, eot) {
+			src: url('#{$file-path}.eot');
+		}
+
+		src: main-src( $formats, $file-path, $font-family );
+	}
+
+}

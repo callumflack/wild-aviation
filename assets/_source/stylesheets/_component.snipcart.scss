@@ -1,0 +1,117 @@
+
+
+// --------------------------------------------------------------------------
+//   SNIPCART THEME
+// --------------------------------------------------------------------------
+
+
+//@mixin textRg() { letter-spacing: 0.015em }
+//@mixin textSm() { letter-spacing: 0.025em }
+//@mixin textLg() { letter-spacing: 0.005em,}
+//headline 0
+//headlineSm 0.012em
+
+/* Remove the image of the close button and hide the label */
+.snipcart-overwrite #snipcart-close {
+    background: none;
+    text-indent: 0;
+    width: auto;
+    color: #000;
+    right: -13px;
+    display: block;
+}
+
+/* Add a new label and arrow to the close button */
+.snipcart-overwrite #snipcart-close:after {
+    content: "Return to site \279C";
+    color: #87db57;
+    position: relative;
+    left: -33px;
+}
+
+// gestalt styles attempt
+.snip-layout {
+    background-color: rgba( palette(background),0.7 );
+    background-color: rgba( palette(brand),0.7 );
+    background-color: palette(background);
+    color: palette(brand) !important;
+    font-family: "regular" !important;
+    letter-spacing: 0.015em !important;
+    padding: $blockSpace 0;
+
+    @include media-breakpoint-down(sm) {
+    	padding: space(1.5);
+    }
+}
+
+.snip-layout__main-container {
+    @include container( container-width(md) );
+    background-color: palette(background);
+}
+
+// remove footer
+.snip-layout .snip-footer {
+    display: none;
+}
+
+// close modal: do later
+.snip-layout .snip-layout__close {
+    color: palette(brand);
+    //position: relative;
+
+    //font-size: 1.8em;
+    //padding: 0;
+    //right: .417em;
+    //top: .1em;
+    //z-index: 2;
+
+    @include media-breakpoint-down(sm) {
+        font-size: 2.5em;
+        right: .2em;
+        top: .25em;
+    }
+}
+
+// remove products
+.snip-layout .snip-product__remove {
+    @include media-breakpoint-down(sm) {
+        right: .25em;
+        top: .75em;
+    }
+}
+
+// header
+.snip-layout .snip-header {
+    background-color: palette(background);
+    color: palette(brand);
+}
+
+.snip-layout .snip-header__total {
+    background-color: palette(brand);
+}
+
+.snip-layout .snip-header__total-label,
+#snipcart-amount {
+    color: palette(background);
+    letter-spacing: 0.025em;
+}
+
+.snip-layout .snip-header__title {
+    letter-spacing: 0.025em;
+}
+
+// step tabs
+.snip-layout .snip-step__item {
+    background-color: palette(faint);
+    color: rgba( palette(brand),0.5 );
+}
+
+.snip-layout .snip-step__item.js-active {
+    color: palette(brand);
+}
+
+// type
+
+.snip-layout .snip-product__name {
+    letter-spacing: 0.075em;
+}

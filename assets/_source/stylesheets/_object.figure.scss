@@ -1,0 +1,28 @@
+
+
+// --------------------------------------------------------------------------
+// FIGURE ELEMENT
+// --------------------------------------------------------------------------
+
+
+.o-figure {
+	margin: ($paragraphSpace * 1.4) auto;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    // theme
+    border: 1px solid palette(light);
+
+	img { width: 100%; }
+
+    &--carousel {
+        border: 0;
+        margin: ($paragraphSpace * 3) auto;
+
+        @include media-breakpoint-up(sm) {
+            margin: ($paragraphSpace * 4) auto;
+        }
+    }
+}

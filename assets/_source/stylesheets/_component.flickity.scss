@@ -1,0 +1,35 @@
+
+
+// --------------------------------------------------------------------------
+// FLICKITY THEME COMPONENT
+// --------------------------------------------------------------------------
+
+
+// Self-styled: http://flickity.metafizzy.co/style.html
+.carousel-cell {
+    margin: 0;
+	width: 100%;
+
+    @include media-breakpoint-up(sm) {
+        width: 50%;
+    }
+}
+
+.flickity-page-dots {
+    bottom: space(-1.5);
+
+    @include media-breakpoint-up(sm) {
+        bottom: space(-2);
+    }
+}
+
+.flickity-page-dots .dot {
+    background: palette(brand-counter);
+    height: 7px;
+    width: 7px;
+
+    @include media-breakpoint-up(sm) {
+            height: 9px;
+            width: 9px;
+    }
+}

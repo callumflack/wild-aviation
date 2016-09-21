@@ -1,0 +1,107 @@
+---
+layout: default
+---
+
+<header class="c-header" role="banner">
+    {% assign image = "header.jpg" %}
+    {% include responsive-image.html %}
+
+	<div class="c-header-wrapper">
+		<div class="o-aligner">
+			<div class="o-aligner-item">
+				<div class="o-container c-hero">
+                    <div class="Grid Grid--withGutter">
+                        <div class="Grid-cell u-sm-size3of12">
+                            <figure class="c-logo">
+                                <a href="/"><img src="{{ site.imageurl }}logo-gold.png" alt="" /></a>
+                            </figure>
+                        </div>
+                        <div class="Grid-cell u-sm-size9of12">
+                            <div class="o-aligner">
+                                <h1 class="o-aligner-item c-headline">Aftermarket Dash-8 specialist. <span class="u-sm-lineBreak">Quality assured spares and support.</span></h1>
+                            </div>
+                        </div>
+
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="c-nav-wrapper">
+        <div class="o-container">
+            <div class="Grid Grid--withGutter">
+                <div class="Grid-cell u-lg-size3of12 u-mobile-hide">
+                    <figure class="c-nav-logo o-aligner">
+                        <a class="o-aligner-item" href="/"><img src="{{ site.imageurl }}logo-gold.png" alt="{{ site.title }}" /></a>
+                    </figure>
+                </div>
+                <div class="Grid-cell u-lg-size9of12">
+                    <nav class="c-nav" id="nav">
+                            <!-- manual html setup to manipulate wording on mobile -->
+                            <div class="c-nav-item"><a href="#About">About</a></div>
+                            <div class="c-nav-item"><a href="#Products">Products</a></div>
+                            <div class="c-nav-item"><a href="#Delivery">Delivery</a></div>
+                            <div class="c-nav-item"><a href="#ServiceDeliveryValues"><span class="u-smDown-hide">Service Delivery </span>Values</a></div>
+                            <div class="c-nav-item"><a href="#OtherServices"><span class="u-smDown-hide">Other </span>Services</a></div>
+                            <div class="c-nav-item"><a href="#ContactUs">Contact<span class="u-smDown-hide"> Us</span></a></div>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="c-main" aria-label="Content">
+
+    {% for section in page.sections %}
+        <section
+            class="c-section {% if section.background %}c-section--reverse{% endif %} {% if section.panel %}c-section--panel{% endif %}"
+            id="{{ section.title | remove: " " }}">
+
+            {% if section.background %}
+                {% assign image = section.background %}
+                {% assign absolute = true %}
+                {% include responsive-image.html %}
+            {% endif %}
+
+            <div class="o-container">
+                {% if section.images %}
+                    <figure class="carousel o-figure o-figure--carousel">
+                        {% for image in section.images %}
+                            <div class="carousel-cell">
+                                <img class="" alt="{{ alt }}" src="{{ site.imageurl }}{{ image }}" />
+                            </div>
+                        {% endfor %}
+                    </figure>
+                {% endif %}
+                <div class="Grid Grid--withGutter">
+                    <div class="Grid-cell u-sm-size3of12">
+                        <h2 class="">{{ section.title |  }}</h2>
+                    </div>
+                    <div class="Grid-cell u-sm-size9of12">
+                        <div class="s-section">
+                            {{ section.copy | markdownify }}
+                            {% if section.form %}
+                                {% include form.html %}
+                            {% endif %}
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    {% endfor %}
+
+</main>
+
+<footer class="c-footer">
+    <div class="o-container">
+        <div class="Grid Grid--withGutter">
+            <div class="Grid-cell u-sm-before3of12 u-sm-size9of12">
+                <p class="">Copyright © 2016 Wild Aviation Services. <span class="u-smDown-lineBreak">Site by <a href="http://www.patternworks.com.au">Patternworks</a>.</span></p>
+            </div>
+        </div>
+    </div>
+</footer>

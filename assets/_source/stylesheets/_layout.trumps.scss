@@ -1,0 +1,68 @@
+
+
+// --------------------------------------------------------------------------
+//   TITLE
+// --------------------------------------------------------------------------
+
+
+// .Header .Display       { @include when-inside(".index") { color: palette(page-home); } }
+// .Header .Display       { @include when-inside(".about") { color: palette(page-about); } }
+
+// .Main       { @include when-inside(".about") { background-color: #f7f4df; } }
+// .Main       { @include when-inside(".phn") { background-color: palette(project-bg); } }
+
+
+// .Header .Block--masthead-text { @include when-inside(".phn")   { color: palette(project-phn)!important; } }
+
+
+// @mixin widths(
+// 	width: $mixinWidthSm
+// ) {
+// 	@include media-breakpoint-up(sm) { width: $mixinWidthSm; }
+// 	@include media-breakpoint-up(lg) { width: $mixinWidthLg; }
+// }
+
+
+
+
+
+// Displays
+
+.Header .Display {
+	@include when-inside(".about") {
+		// @include media-breakpoint-up(sm) { width: $mixinWidthSm; }
+		@include media-breakpoint-up(lg) { width: 95%; }
+	}
+}
+
+.Footer .Display {
+	@include media-breakpoint-up(lg) { width: 84%; }
+}
+
+
+// Headlines
+
+.Header .Headline {
+	@include when-inside(".primary-healthcare-network") {
+		em { color: palette(project-phn); }
+		@include media-breakpoint-up(xs) { width: 90%; }
+		@include media-breakpoint-up(lg) { width: 85%; }
+	}
+
+	@include when-inside(".ward6") {
+		em { color: palette(project-ward6); }
+		@include media-breakpoint-up(lg) { width: 80%; }
+	}
+
+	@include when-inside(".oceanblue-living") {
+		em { color: palette(project-obl); }
+		@include media-breakpoint-up(lg) { width: 90%; }
+	}
+}
+
+
+// Footer
+
+.Footer .Block--masthead p {
+	@include media-breakpoint-down(sm) { width: 72%; }
+}

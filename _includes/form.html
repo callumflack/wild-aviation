@@ -1,0 +1,15 @@
+<form accept-charset="UTF-8" action="https://formspree.io/{{ site.email }}" method="POST">
+    <!-- <label for="fieldEmail">Email</label> -->
+    <input type="hidden" name="utf8" value="✓">
+    <input name="name" type="text" placeholder="Name*" required/>
+    <input name="_replyto" type="email" placeholder="Email*" required/>
+    <input name="telephone" type="telephone" placeholder="Telephone*" required/>
+    <input name="url" type="text" placeholder="Website"/>
+    <textarea name="message" type="message" rows="3" placeholder="How can we help you?"></textarea>
+    <!-- <input id="" name="" type="file" name="pic" accept="file_extension|media_type"> -->
+    <p class="u-textRight">
+        <button type="submit" value="Send" role="button" class="Button t-button">Send</button>
+    </p>
+
+    <!-- <p class="u-textCenter u-textSm u-marginTX15"><em>Don’t like forms? You can <a href="mailto:{{ site.email }}">email us</a> instead, or call us on 0402 318 973.</em></p> -->
+</form>

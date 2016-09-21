@@ -1,0 +1,95 @@
+
+
+// --------------------------------------------------------------------------
+//   HEADER
+// --------------------------------------------------------------------------
+
+
+.HeaderWrapper {
+	left: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.Header {
+	margin-top: space(2.5);
+	position: relative;
+
+	@include media-breakpoint-up(sm) { margin-top: space(5); }
+}
+
+// .Header-logo {
+// 	border-bottom: 1px solid palette(white);
+// 	display: inline-block;
+// 	padding-bottom: space(1);
+//
+// 	> img {
+// 		width: 220px;
+// 	}
+// }
+//
+// .Header-title {
+// 	@include headlineSm();
+// 	color: palette(white);
+// 	letter-spacing: 0.03em;
+//
+// 	@include media-breakpoint-up(sm) {
+// 		margin: 0 auto;
+// 		width: 70%;
+// 	}
+// }
+
+
+// Hero block
+// --------------------------------------------------------------------------
+
+.Hero {
+	background-image: linear-gradient(to bottom, rgba( palette(neutral-dark), 0 ) 50%, rgba( palette(neutral-dark), 0.7 ) 100%);
+	position: relative;
+
+	&:after {
+		background-image: linear-gradient(to bottom, rgba( palette(text), 0 ) 0%, rgba( palette(text), 0.02 ) 100%);
+		bottom: 0;
+		content: "";
+		height: 15vh;
+		position: absolute;
+		width: 100%;
+	}
+}
+
+.FlexEmbed-ratio--versions {
+	// padding-bottom: 56.5%;
+	padding-bottom: 66vh;
+
+	@include media-breakpoint-up(xs)  { padding-bottom: 100vh; }
+	// @include media-breakpoint-up(lg)  { padding-bottom: 56.5%; }
+	// @include media-breakpoint-up(xl)  { padding-bottom: 60.5%; }
+	// @include media-breakpoint-up(xxl) { padding-bottom: 52.5%; }
+}
+
+.Slide {
+	@include baseTransition;
+	background-position: 50% 100%;
+	background-repeat: no-repeat;
+	bottom: 0;
+	background-size: contain;
+	height: 100%;
+	left: space(1);
+	// max-height: 45%;
+	max-height: 73%;
+	// max-height: 50vh;
+	margin: 0 auto;
+	position: absolute;
+	right: space(1);
+
+	@include media-breakpoint-up(md) {
+		left: 0;
+		right: 0;
+	}
+
+	// @include media-breakpoint-up(md) { max-height: 50vh; }
+	// @include media-breakpoint-up(lg)  { max-height: 60%; }
+	// @include media-breakpoint-up(xl)  { max-height: 66%; }
+	// @include media-breakpoint-up(xxl) { max-height: 71%; }
+}

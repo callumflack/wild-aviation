@@ -1,0 +1,63 @@
+
+
+// --------------------------------------------------------------------------
+//   MODAL OBJECT
+//   Reqs: '_object.positions.scss'
+// --------------------------------------------------------------------------
+
+
+// Modal object with theme
+
+@mixin t-modal {
+	transform: scale(0);
+	transition: z-index 0s ease 500ms, opacity 500ms ease;
+}
+
+.o-modal {
+	@include o-posFullScreen();
+	@include t-modal();
+	background-color: palette(modal-background);
+	opacity: 0;
+	outline: 0;
+	overflow-x: hidden;
+	width: 100vw;
+	z-index: map-fetch($z-index, 'below');
+}
+
+@mixin t-modalActive {
+	transform: scale(1);
+	transition: z-index 0s ease, opacity 250ms ease;
+}
+
+.o-modal.is-active {
+	@include t-modalActive();
+	opacity: 1;
+	// overflow: hidden;
+	z-index: map-fetch($z-index, 'modal');
+
+	@include media-breakpoint-up(xs) {
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+}
+
+
+// Modal dialog object with theme
+
+@mixin t-modalDialog() {
+	transform: translateY(10px);
+	transition: all map-fetch($transition, duration, fast) map-fetch($transition, type, base);
+}
+
+.o-modal-dialog {
+	@include t-modalDialog();
+	margin: space(1) auto;
+	opacity: 0;
+	position: relative;
+	width: container-width(md);
+
+	@include media-breakpoint-up(sm) {
+		margin: space(2) auto;
+		width: container-width(md);
+	}
+}

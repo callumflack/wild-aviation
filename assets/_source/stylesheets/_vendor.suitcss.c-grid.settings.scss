@@ -1,0 +1,45 @@
+
+
+// --------------------------------------------------------------------------
+//    SUIT GRID SETTINGS
+// --------------------------------------------------------------------------
+
+
+.Grid--withGutter {
+	margin: 0 -#{$gutterSpace / 1.5};
+
+    @include media-breakpoint-up(lg) { margin: 0 -#{$gutterSpace}; }
+}
+
+.Grid--withGutter > .Grid-cell {
+	padding: 0 $gutterSpace / 1.5;
+
+    @include media-breakpoint-up(lg) { padding: 0 $gutterSpace; }
+}
+
+//$gutterSpaceNegative : -($gutterSpace);
+
+//.Grid--withGutterLg {
+//	margin: 0 $gutterSpaceNegative;
+//	padding: 0 ($gutterSpace * 2);
+//
+//	@include media-breakpoint-up(xs) { margin: 0 $gutterSpaceNegative; }
+//}
+//
+//.Grid--withGutterLg > .Grid-cell {
+//	padding: 0 $gutterSpace;
+//
+//	@include media-breakpoint-up(xs) { padding: 0 $gutterSpace; }
+//}
+
+.Grid--withGutterSm {
+	margin: 0 -#{$gutterSpace / 9};
+
+	@include media-breakpoint-up(lg) { margin: 0 -#{$gutterSpace / 3}; }
+}
+
+.Grid--withGutterSm > .Grid-cell {
+	padding: 0 $gutterSpace / 9;
+
+	@include media-breakpoint-up(lg) { padding: 0 $gutterSpace / 3; }
+}

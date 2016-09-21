@@ -1,0 +1,295 @@
+
+
+// --------------------------------------------------------------------------
+//   HEADER LAYOUT
+// --------------------------------------------------------------------------
+
+
+.c-header {
+    height: 60vh;
+	position: relative;
+}
+
+.c-header-wrapper {
+    @include o-posFullScreen(absolute);
+}
+
+.c-hero {
+    //background-color: rgba( palette(brand-counter), 0.5 );
+    //background-blend-mode: multiply;
+    border: 1px solid palette(background);
+
+    //padding: $gutterSpace 0;
+    padding: 0;
+
+    @include media-breakpoint-down(md) {
+        margin: 0 space(1.5);
+    }
+
+    @include media-breakpoint-down(sm) {
+        //padding: $gutterSpace;
+    }
+}
+
+.c-logo {
+    //margin: $gutterSpace 0;
+    //margin-top: auto;
+    //margin-top: $gutterSpace * 2;
+    //margin: 9px 9px space(1.25) 9px;
+
+    // test
+    background-color: rgba( palette(background), 0.96 );
+    padding: space(0.75) space(0.75) space(0.9);
+
+    @include media-breakpoint-up(sm) {
+        text-align: center;
+        margin: 0;
+        padding: $gutterSpace 0;
+    }
+
+    img {
+        width: 90px;
+
+        @include media-breakpoint-up(sm) { width: 120px; }
+        @include media-breakpoint-up(lg) { width: 150px; }
+    }
+}
+
+.c-header .c-headline,
+.c-header .c-nav-item {
+    color: palette(white);
+}
+
+.c-header .c-headline {
+    margin: 0;
+
+    @include media-breakpoint-down(sm) {
+        padding: space(0.9) space(1);
+    }
+}
+
+
+// Nav
+// --------------------------------------------------------------------------
+
+.c-nav-wrapper {
+    @include o-posFullScreen();
+    bottom: auto;
+    z-index: 1000;
+
+    @include media-breakpoint-down(sm) {
+        opacity: 0;
+
+        .o-container {
+        	padding: 0 space(0.75);
+        }
+    }
+
+    // active
+    &.is-active {
+        @include headerIn();
+        background-color: rgba( palette(background), 1 );
+        //border-bottom: 1px solid rgba( palette(brand-counter), 0.1 );
+        box-shadow: 3px 3px space(1) 0px rgba( palette(text), 0.1 );
+
+        @include media-breakpoint-down(sm) {
+            opacity: 1;
+        }
+
+        .c-nav-title,
+        .c-nav-item {
+            color: palette(text);
+        }
+
+        .c-nav-title {
+            display: block;
+        }
+
+        .c-nav-logo {
+            display: flex;
+        }
+    }
+}
+
+.c-nav {
+    @include listInline();
+    display: flex;
+    justify-content: space-between;
+    //margin-bottom: auto;
+    //padding-right: $gutterSpace;
+}
+
+// utility to hide .c-nav-logo at mobile
+@include media-breakpoint-down(md) {
+    .u-mobile-hide {
+        display: none;
+    }
+}
+
+.c-nav-logo {
+    display: none;
+    height: 100%;
+
+    img {
+        width: 28px;
+
+        @include media-breakpoint-up(sm) { width: 40px; }
+        @include media-breakpoint-up(lg) { width: 60px; }
+    }
+}
+
+// https://github.com/IanLunn/Hover/blob/master/scss/effects/border-transitions/_underline-from-left.scss
+@mixin underline-from-left {
+	@include smoothTransition();
+	position: relative;
+	overflow: hidden;
+
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		left: 0;
+		right: 100%;
+		bottom: 0;
+		background: palette(brand-counter);
+		height: 4px;
+		transition-property: "right";
+		transition-duration: 250ms;
+		transition-timing-function: ease-out;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+
+		&:before {
+			right: 0;
+		}
+	}
+}
+
+.c-nav-title {
+    display: none;
+}
+
+.c-nav-title,
+.c-nav-item {
+    @include underline-from-left();
+    @include textSm();
+    font-family: $font-text-medium;
+    padding: space(1) 0;
+
+    a {
+        padding: space(1) 0;
+
+        @include on-event() {
+            color: palette(brand-counter);
+        }
+    }
+
+    &.is-active {
+        //border-bottom: 4px solid palette(text);
+        &:before {
+            right: 0;
+        }
+
+        a {
+            color: palette(brand-counter);
+        }
+    }
+}
+
+
+
+// Section blocks
+// --------------------------------------------------------------------------
+
+.c-main {
+    position: relative;
+}
+
+.c-section {
+    min-height: 60vh;
+    padding: $blockSpace 0;
+    position: relative;
+
+    @include media-breakpoint-up(sm) {
+        min-height: 800px;
+    }
+}
+
+.c-section--panel {
+    background-color: rgba( palette(neutral), 0.7 );
+}
+
+.c-section--reverse {
+    h2,
+    p,
+    li,
+    a {
+        color: palette(background);
+    }
+}
+
+// scope
+.s-section {
+    a {
+        @include underlineLink();
+    }
+
+    //li {
+    //	font-size: fontsize(headline--sm, xs);
+    //	@include media-breakpoint-up(sm) { font-size: fontsize(headline--sm, sm); }
+    //	@include media-breakpoint-up(md) { font-size: fontsize(headline--sm, rg); }
+    //}
+
+}
+
+.c-section--reverse .s-section {
+    a {
+        @include underlineLink($mixin-rule: $linkRuleWhite);
+    }
+}
+
+
+
+// Footer
+// --------------------------------------------------------------------------
+
+.c-footer {
+    padding: 0 0 $blockSpace;
+}
+
+.c-footer p {
+    @include textSm();
+    border-top: 1px solid palette(base);
+    color: palette(medium);
+    padding-top: space(1);
+}
+
+@include media-breakpoint-up(sm) {
+    .u-sm-before3of12 {
+        margin-left: 25%;
+    }
+}
+
+
+
+
+// quick spacers
+// --------------------------------------------------------------------------
+
+//.u-spaceTD2    { margin-top: space(0.5); }
+//.u-spaceT      { margin-top: space(1); }
+//.u-spaceT2     { margin-top: space(2); }
+//.u-spaceB      { margin-bottom: space(1); }
+//.u-spaceB2     { margin-bottom: space(2); }
+//
+//.u-sm-spaceT   { @include media-breakpoint-down(sm) { margin-top: space(1); } }
+//.u-sm-spaceT2  { @include media-breakpoint-down(sm) { margin-top: space(2); } }
+//.u-sm-spaceTD2 { @include media-breakpoint-down(sm) { margin-top: space(0.5); } }
+//
+//.u-lg-spaceT   { @include media-breakpoint-down(lg) { margin-top: space(1); } }
+//.u-lg-spaceTD2 { @include media-breakpoint-down(lg) { margin-top: space(0.5); } }
+//
+//.u-xl-spaceT   { @include media-breakpoint-down(xl) { margin-top: space(1); } }

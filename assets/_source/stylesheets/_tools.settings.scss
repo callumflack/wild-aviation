@@ -1,0 +1,299 @@
+
+
+// --------------------------------------------------------------------------
+//   VARIABLE SETTINGS
+// --------------------------------------------------------------------------
+
+
+// Namespace for themeing & testing
+// Apply: .#{$namespace}textarea
+// Don't use this method to namespace variables…
+// --------------------------------------------------------------------------
+
+$namespace             : '';
+
+
+// Colours
+// --------------------------------------------------------------------------
+
+$base-black                    : #000;
+$base-white                    : #FFF;
+
+$palette: (
+	black                      : $base-black,
+	text                       : #151515,
+	dark                       : tint($base-black, 15%),
+	ash                        : tint($base-black, 22%),
+	charcoal                   : tint($base-black, 39%),
+	medium                     : tint($base-black, 50%),
+	muted                      : tint($base-black, 70%),
+	base                       : tint($base-black, 86%),
+	light                      : tint($base-black, 94%),
+	faint                      : tint($base-black, 97%),
+	white                      : $base-white,
+	background                 : #fdfdfd,
+	neutral                    : #F3F2F1,
+	neutral-dark               : darken(#f0eeeb, 9%),
+	neutral-light              : lighten(#f0eeeb, 4%),
+	brand                      : #00abff,
+	brand-complement           : #fff59f,
+	brand-counter              : #a67c52,
+	modal-background           : #151515,
+	warning                    : #FFD40C,
+	bad-news                   : #C60C0C,
+	good-news                  : brand-complement
+);
+
+
+// Base size measures
+// --------------------------------------------------------------------------
+
+$base-font-size-unit           : 16;
+$base-line-height-unit         : 1.5;
+$base-font-size                : $base-font-size-unit * 1px;
+$base-line-height              : ($base-font-size-unit * $base-line-height-unit) * 1px; // 24.65
+$space-unit                    : $base-line-height;
+$space                         : $space-unit * 1;
+
+$gutterSpace                   : 2vh;
+$paragraphSpace                : space(1);
+$blockSpace                    : 10vh;
+$inputLineHeightAdjustment     : 4px;
+
+
+
+// Widths (based on BS4)
+// --------------------------------------------------------------------------
+
+// BS4 defaults:
+// Removed the BS4 ascending mixin:
+// @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");),
+// $container-max-widths: (
+// 	sm: 576px,
+// 	md: 720px,
+// 	lg: 940px,
+// 	xl: 1140px
+// ) !default;
+
+$grid-breakpoints: (
+	xs: 0,
+	sm: 544px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	su: 1700px
+) !default;
+
+$container-max-widths: (
+	sm: 576px,
+	rg: 800px,
+	lg: 960px,
+	xl: 1100px,
+	su: 1700px,
+) !default;
+
+
+// Font sizes
+// --------------------------------------------------------------------------
+
+$fontsizes: (
+	text--sm: (
+		xs            : 11px,
+		sm            : 15px,
+        lg            : 17px
+	),
+	text: (
+		xs            : 16px,
+		sm            : 21px,
+		lg            : 23px
+	),
+    headline--sm: (
+		xs            : 15px,
+		sm            : 19px,
+		lg            : 20px
+	),
+    headline: (
+        xs            : 20px,
+        sm            : 25px,
+        lg            : 28px
+    ),
+
+    // unused…
+
+    text--lg: (
+        sm            : 27px,
+        rg            : 32px,
+        lg            : 36px
+    ),
+	headline--xs: (
+		xs            : 18px,
+		sm            : 22px,
+		lg            : 27px
+	),
+	display: (
+		xs            : 40px,
+		sm            : 54px,
+		lg            : 60px
+	)
+);
+
+
+// Other sizes
+// --------------------------------------------------------------------------
+
+$border-radius: (
+    small             : 3px,
+    base              : 4px,
+    large             : 6px
+);
+
+$button-height: (
+    concise           : 36px,
+    base              : 44px,
+    lg                : 55px
+);
+
+$list-inset: (
+    margin            : space(1),
+    padding           : 0
+);
+
+
+// Transitions
+// --------------------------------------------------------------------------
+
+$transition: (
+	duration: (
+		fast         : 50ms,
+		short        : 150ms,
+		long         : 500ms
+	),
+	type: (
+		thisalso     : cubic-bezier(0.19, 1, 0.22, 1),
+		cubic-static : cubic-bezier(0, -0.1, 1, -0.1),
+		cubic-state  : cubic-bezier(0, 1.1, 1, 1.1),
+		base         : ease-out,
+		fine         : ease-in-out
+	)
+);
+
+
+// Z-indexes
+// --------------------------------------------------------------------------
+
+$z-index: (
+	'modal'     : 8001,
+	'overlay'   : 8000,
+	'dropdown'  : 7000,
+	'second'    : 2000,
+	'first'     : 1000,
+	'default'   : 1,
+	'below'     : -1,
+);
+
+
+// Fonts using data-URIs
+// --------------------------------------------------------------------------
+
+// define stacks
+$font-mono-stack       : Menlo, Monaco, Consolas, "Liberation Mono", 'Courier New', 'Andale Mono', 'Lucida San Typewriter', 'Lucida Console', monospace;
+$sans-font-stack       : -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", "Droid Sans", "Segoe UI", "Fira Sans", "Ubuntu", sans-serif;
+$serif-font-stack      : Georgia, "Times New Roman", "Times", serif;
+$display-font-stack    : $sans-font-stack;
+
+// Are you referencing the font files rather than using a base64 string?
+$fonts-path           : '/assets/fonts/';
+
+// is the html-level font stack sans or serif?
+$main-font-stack       : $sans-font-stack;
+
+// would you like to namespace your font?
+$font-namespace        : '';
+
+// fill em out
+$sans-hair        : 'hair';
+$sans-thin        : 'thin';
+$sans-light       : 'light';
+$sans-book        : 'blond';
+$sans-regular     : 'normal';
+$sans-medium      : 'medium';
+$sans-semibold    : 'semibold';
+$sans-bold        : 'bold';
+$sans-extrabold   : 'extrabold';
+$sans-black       : 'black';
+$sans-display     : 'display';
+
+// italics placeholders
+$sans-thin-i      : $sans-thin;
+$sans-light-i     : $sans-light;
+$sans-book-i      : $sans-book;
+$sans-regular-i   : $sans-regular;
+$sans-medium-i    : $sans-medium;
+$sans-semibold-i  : $sans-semibold;
+$sans-bold-i      : $sans-bold;
+$sans-extrabold-i : $sans-extrabold;
+$sans-black-i     : $sans-bold;
+$sans-display-i   : $sans-display;
+
+
+// Make all font files available
+// Mixin options: $font-family, $file-path, $weight, $style, $formats
+// Ps. This below prints an unwanted space between the path var and the font var:
+// @include font-face($sans-thin, join($fonts-path,$sans-thin) );
+
+@include font-face($sans-thin, '#{$fonts-path}#{$sans-thin}' );
+@include font-face($sans-light, '#{$fonts-path}#{$sans-light}' );
+@include font-face($sans-book, '#{$fonts-path}#{$sans-book}' );
+@include font-face($sans-regular, '#{$fonts-path}#{$sans-regular}' );
+@include font-face($sans-medium, '#{$fonts-path}#{$sans-medium}' );
+@include font-face($sans-bold, '#{$fonts-path}#{$sans-bold}' );
+@include font-face($sans-black, '#{$fonts-path}#{$sans-black}' );
+
+// Unused, so apply a default to avoid gulp fuckups
+//@include font-face($sans-xbold,   '#{$fonts-path}#{$sans-xbold}' );
+//@include font-face($display, '#{$fonts-path}#{$display}' );
+//@include font-face($sans-regular-italic, '#{$fonts-path}#{$sans-regular-italic}' );
+
+
+// Apply font-file variables to a font-stack.
+// We only use these variables in our classes.
+
+$font-text-thin       : join($sans-thin, $main-font-stack);
+$font-text-light      : join($sans-light, $main-font-stack);
+$font-text-book       : join($sans-book, $main-font-stack);
+$font-text-regular    : join($sans-regular, $main-font-stack);
+$font-text-medium     : join($sans-medium, $main-font-stack);
+$font-text-semibold   : join($sans-semibold, $main-font-stack);
+$font-text-bold       : join($sans-bold, $main-font-stack);
+$font-text-extrabold  : join($sans-extrabold, $main-font-stack);
+$font-text-black      : join($sans-black, $main-font-stack);
+
+// Unused, so apply a default to avoid gulp fuckups
+//$font-text-regular-i  : join($sans-regular, $main-font-stack);
+//$font-text-medium-i   : join($sans-medium-italic, $main-font-stack);
+$font-text-bold-i   : join($sans-bold, $main-font-stack);
+$font-display         : $font-text-regular;
+//$font-sans-xbold      : join($sans-xbold, $main-font-stack);
+//$font-sans-regular-i  : join($sans-regular-italic, $main-font-stack);
+//$font-display         : join($display, $display-font-stack);
+
+
+
+
+
+
+
+// Object/component default fonts
+// --------------------------------------------------------------------------
+
+$font-button           : $font-text-bold;
+
+
+// Suit breakpoint switches
+// --------------------------------------------------------------------------
+
+$suit-text-breakpoints      : false !default;
+$suit-flex-breakpoints      : false !default;
+$suit-flexembed-breakpoints : false !default;
+$suit-grid-breakpoints      : true !default;
+$suit-size-breakpoints      : true !default;

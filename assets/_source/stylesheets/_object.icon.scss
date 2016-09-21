@@ -1,0 +1,139 @@
+
+
+// --------------------------------------------------------------------------
+//   OBJECT: SVG ICONS
+//   Ripped from OUI icons
+// --------------------------------------------------------------------------
+
+
+.IconWrapper {
+	cursor: pointer;
+	display: inline-block;
+	margin: -30px;
+	padding: 30px;
+}
+
+// .#{$namespace}Icon,
+.Icon {
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	fill: currentColor; // The color of the SVG will inherit the parent's `color`.
+
+	cursor: pointer;
+	display: inline-block;
+	line-height: 1;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+
+	@include on-event() {
+		outline: 0;
+	}
+
+	// 24:18 ratio
+	&--nav {
+		height: 20px;
+		margin-left: 12px;
+		width: 15px;
+	}
+
+	&--sm {
+		width: 12px;
+		height: 12px;
+	}
+
+	&--md {
+		width: rem(18);
+		height: rem(18);
+	}
+
+	&--lg {
+		width: rem(32);
+		height: rem(32);
+	}
+
+	&--super {
+		width: rem(40);
+		height: rem(40);
+
+		@include media-breakpoint-up(xs) {
+			width: rem(48);
+			height: rem(48);
+		}
+	}
+
+	&--left {
+		margin-right: 5px;
+
+		@include media-breakpoint-up(xs) {
+			margin-right: rem(7);
+		}
+	}
+
+	&--leftSm {
+		margin-right: 1px;
+
+		@include media-breakpoint-up(xs) {
+			margin-right: rem(2);
+		}
+	}
+
+	&--right {
+		margin-left: 5px;
+
+		@include media-breakpoint-up(xs) {
+			margin-left: rem(7);
+		}
+	}
+
+	&--rightSm {
+		margin-left: 1px;
+
+		@include media-breakpoint-up(xs) {
+			margin-left: rem(2);
+		}
+	}
+
+	// This is a vertical alignment fix when used to the right of `.#{$namespace}icon`.
+	+ [class^="#{$namespace}-arrow-inline"] {
+		vertical-align: super;
+	}
+
+	&--textAlign {
+		// vertical-align: sub;
+		line-height: inherit;
+		transform: translateY(-2px);
+		vertical-align: middle;
+	}
+
+	&--textLgAlign {
+		transform: translateY(1px);
+	}
+
+	&--buttonAlign {
+		line-height: inherit;
+		transform: translateY(-2px);
+		vertical-align: middle;
+	}
+
+	&--formAlign {
+		position: relative;
+		vertical-align: top;
+	}
+
+	&--mediaAlign {
+		transform: translateY(rem(-4));
+	}
+}
+
+/// Icon alignment fixes
+/// @description Fix for icons inside buttons with text and icons inside tabs.
+
+// .#{$namespace}button .#{$namespace}Icon {
+//   vertical-align: sub;
+// }
+//
+// .#{$namespace}tabs-nav__item .#{$namespace}icon {
+//   vertical-align: sub;
+// }

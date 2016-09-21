@@ -1,0 +1,295 @@
+
+
+// --------------------------------------------------------------------------
+//   TEXT TYPOGRAPHY
+// --------------------------------------------------------------------------
+
+
+// Common theme…
+
+// A note on mixin parameters.
+// Required parameters must preced optional parameters.
+// To use parameter 4, you must have a value for each
+// preceding required parameter. Or list the parameter
+// value after it's key name (like below).
+// @mixin textSm() {
+// 	@include textTemplate(
+// 		Text--sm,
+// 		$mixinLetterSpacing: 0.01em
+// 	);
+// }
+
+@mixin textTemplate(
+	$mixinSize: text,
+	$mixinColor: palette(text),
+	$mixinFont: $font-text-book,
+	$mixinLetterSpacing: 0,
+	$mixinLineHeight: $base-line-height-unit
+) {
+
+	// standards
+	color: $mixinColor;
+	font-family: $mixinFont;
+	letter-spacing: $mixinLetterSpacing;
+	line-height: $mixinLineHeight;
+
+	// sizes
+	font-size: fontsize($mixinSize, xs);
+	@include media-breakpoint-up(sm) { font-size: fontsize($mixinSize, sm); }
+	@include media-breakpoint-up(lg) { font-size: fontsize($mixinSize, lg); }
+
+	// children
+	> li,
+	> li a,
+	> span a,
+	> a {
+		color: currentColor;
+		font-family: inherit;
+		font-size: inherit;
+		margin: 0;
+	}
+}
+
+
+// Text components by size…
+
+@mixin textRg() {
+	@include textTemplate(
+    );
+}
+
+@mixin textSm() {
+	@include textTemplate(
+		$mixinSize: text--sm,
+		$mixinLetterSpacing: 0.01em
+	);
+}
+
+@mixin textLg() {
+	@include textTemplate(
+		$mixinSize: text--lg,
+        $mixinLetterSpacing: 0.005em,
+        $mixinLineHeight: 1.4
+	);
+}
+
+
+
+// Component: Text
+// Initiate mixins in classes.
+// --------------------------------------------------------------------------
+
+.c-text--sm       { @include textSm(); }
+.c-text           { @include textRg(); }
+.c-text--medium   { @include textRg(); color: palette(medium); }
+.c-text--intro    { @include textRg(); color: palette(medium); margin-bottom: space(0.5); }
+.c-text--lg       { @include textLg(); margin-bottom: 0; > strong { font-family: $font-text-extrabold; text-transform: initial; } }
+
+
+.c-text--meta {
+	@include textSm();
+	color: palette(medium) !important;
+	// text-align: center;
+
+	> a {
+		border-color: transparent !important;
+
+		@include on-event() {
+			border-color: palette(medium) !important;
+		}
+	}
+
+	@include media-breakpoint-up(sm) {
+		margin: auto;
+		// width: 70%;
+	}
+}
+
+.c-cite {
+    @include textRg();
+    display: block;
+    font-family: $font-text-semibold;
+    font-style: normal;
+    letter-spacing: 0.12em;
+    margin-top: space(0.5);
+    text-transform: uppercase;
+
+    a {
+        letter-spacing: inherit;
+    }
+}
+
+
+// Fast project hacks
+// --------------------------------------------------------------------------
+
+.c-text--lg > strong {
+    display: inline;
+    font-family: $font-text-bold;
+    text-transform: initial;
+}
+
+a > strong {
+    display: block;
+}
+
+
+
+// Component: Text blocks
+// --------------------------------------------------------------------------
+
+.c-text-block { > * { @include textRg(); } }
+
+.c-text-block--footer {
+	@include listClean();
+	margin: 0;
+
+	&::before {
+		background-color: rgba( palette(background), 0.2);
+		content: " ";
+		display: block;
+		height: 1px;
+		margin: space(1) 0 space(1.15);
+		width: 2.5%;
+	}
+
+	> * {
+		@include textRg();
+		margin-bottom: 0;
+	}
+}
+
+
+
+
+// Component: list
+// --------------------------------------------------------------------------
+
+//list cell of fixed width, like a tabbed info element
+.c-list--itemTag {
+	@include textSm();
+	display: inline-block;
+	width: space(0.75);
+}
+
+.c-list--meta {
+	@include textSm();
+	@include listClean();
+	color: palette(medium);
+	margin-bottom: space(1.25);
+}
+
+.c-list--meta-title {
+	color: palette(text) !important;
+	margin: space(1.25) 0 space(0.625) !important;
+
+	&:first-child {
+		margin-top: 0 !important;
+	}
+}
+
+
+
+// Utility: Responsive line break
+// https://css-tricks.com/injecting-line-break/
+// 1. emulates text-align: center
+// --------------------------------------------------------------------------
+
+@include media-breakpoint-down(lg) {
+    span.u-lg-lineBreak {
+        display: table !important;
+        margin: auto; // 1.
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    span.u-sm-lineBreak {
+        display: table !important;
+        //margin: auto; // 1.
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    span.u-smDown-lineBreak {
+        display: table !important;
+        //margin: auto; // 1.
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    span.u-smDown-hide {
+        display: none !important;
+    }
+}
+
+
+
+// Utility: weights & italics
+// --------------------------------------------------------------------------
+
+.u-textWtLt        { font-family: $font-text-light !important; }
+.u-textWtRg        { font-family: $font-text-regular !important; }
+.u-textWtMd        { font-family: $font-text-medium !important; }
+.u-textWtSemi      { font-family: $font-text-semibold !important; }
+
+//.u-textEmRg        { font-family: $font-text-regular-i !important; }
+//.u-textEmMd        { font-family: $font-text-medium-i !important; }
+
+
+
+// Utility: HTML elements
+// --------------------------------------------------------------------------
+
+// h1, h2, h3, h4, h5, h6,
+// blockquote, figure
+// li
+ul, ol, dl,
+p, address,
+table, time,
+fieldset, figcaption,
+pre, a {
+	@include textRg();
+}
+
+em,
+.u-textEm {
+	@include typeReset();
+	font-family: $font-text-bold-i;
+}
+
+b,
+strong,
+.u-textBold {
+	@include typeReset();
+	font-family: $font-text-bold;
+}
+
+blockquote,
+.Blockquote {
+	// is this req'd?
+	// @include typeReset();
+	color: palette(medium);
+	font-family: $font-text-book;
+	font-size: fontsize(text, xs);
+	margin-bottom: space(0.75);
+
+	@include media-breakpoint-up(sm) {
+		font-size: fontsize(text, sm);
+		margin-bottom: space(1);
+	}
+}
+
+// .Lede {
+// 	@include textRg();
+// 	color: color(text, brand) !important;
+// 	font-family: $font-text-regular;
+// 	font-size: fontsize(headline, xs);
+// 	line-height: 1.45;
+// 	// margin-bottom: space(1);
+//
+// 	@include media-breakpoint-up(sm) {
+// 		font-family: $font-text-bold;
+// 		font-size: fontsize(headline, base);
+// 		line-height: $base-line-height-unit;
+// 	}
+// }

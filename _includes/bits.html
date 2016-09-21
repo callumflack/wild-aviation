@@ -1,0 +1,50 @@
+
+<!-- nav using sections front matter in index.md -->
+{% for section in page.sections %}
+    <div class="c-nav-item"><a href="#{{ section.title | remove: " " }}">{{ section.title }}</a></div>
+{% endfor %}
+
+<section class="c-section" id="products">
+    <div class="o-container">
+        <div class="Grid Grid--withGutter">
+            <div class="Grid-cell u-size3of12">
+                <h2 class="">Products</h2>
+            </div>
+            <div class="Grid-cell u-size9of12">
+                <figure class="o-figure">
+                    <img src="{{ site.imageurl }}parts.jpg" alt="" />
+                </figure>
+                {{ site.data.homepage.products.copy | markdownify }}
+                <ul>
+                    {% for type in site.data.homepage.products.type %}
+                        <li>{{ type.text }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="u-flex u-flexCol" style="height:100%">
+
+{% if section.heading == 'Experience' %}
+    {{ section.heading }}
+
+- title: products
+    copy: |
+        Wild Aviation Services specialises in Aftermarket Dash-8 parts, shipping globally. We supply parts for 100s, 200s and 300s with expansion to other types of aircraft.
+
+        We will quote on all of your requirements so just ask our friendly team. Parts are covered by warranty, fully traceable and with the certification required by your regulating authority.
+
+        Options are available for Outright or Exchange, New, Overhauled, Serviceable or As Removed in our specialty product lines.
+    types:
+        - Avionics
+        - Structures
+        - Landing Gear
+        - Props
+        - Components
+
+<!-- <figure class="o-figure">
+    <img src="{{ site.imageurl }}{{ section.image }}" alt="" />
+</figure> -->

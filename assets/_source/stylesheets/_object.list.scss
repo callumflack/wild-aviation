@@ -1,0 +1,69 @@
+
+
+// --------------------------------------------------------------------------
+//   OBJECT: LIST
+// --------------------------------------------------------------------------
+
+
+// 1. Remove extra vertical spacing when nesting lists.
+
+ul {
+	list-style-type: square;
+	margin-left: map-fetch($list-inset, margin);
+	padding-left: map-fetch($list-inset, padding);
+}
+
+ol {
+	list-style-type: decimal;
+}
+
+li {
+	margin-bottom: 0;
+
+	> ul,
+	> ol {
+		margin-bottom: 0; // 1.
+	}
+}
+
+
+// List object: default
+// --------------------------------------------------------------------------
+
+@mixin list() {
+	margin-left: map-fetch($list-inset, margin);
+	padding-left: map-fetch($list-inset, padding);
+}
+
+.o-list { @include list(); }
+
+
+// Clean list object: remove all default spacing
+// --------------------------------------------------------------------------
+
+@mixin listClean() {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.o-listClean { @include listClean(); }
+
+
+// Inline list object:
+// Apply to the ul/ol tag, but it's setup for use on any div.
+// --------------------------------------------------------------------------
+
+@mixin listInline() {
+	@include listClean();
+
+	li,
+	div {
+		display: inline-block;
+		&:not(:last-child) {
+			margin-right: space(0.25);
+		}
+	}
+}
+
+.o-listInline { @include listInline(); }

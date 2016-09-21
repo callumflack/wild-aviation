@@ -1,0 +1,28 @@
+// When a post is also a link.
+// These are vertically & horizontally centered.
+// See: https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/
+a.Project--inList {
+	// @include baseTransition();
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	opacity: 1;
+
+	+ .Post {
+		margin-top: space(3.25);
+		margin-top: 4vh;
+	}
+
+	> .Post-aligner {
+		flex: 1;
+	}
+
+	@include on-event() {
+		.o-coverImage,
+		.Post-coverImage {
+			@include baseTransition();
+			opacity: 0.5;
+		}
+	}
+}

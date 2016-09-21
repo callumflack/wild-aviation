@@ -1,0 +1,71 @@
+
+
+// --------------------------------------------------------------------------
+//   CONTAINER OBJECT
+// --------------------------------------------------------------------------
+
+
+@mixin container(
+	$width: container-width(lg)
+) {
+	@include clearfix();
+	height: inherit;
+	margin: 0 auto;
+	max-width: $width;
+	padding: 0 space(1.5);
+	position: relative;
+
+	//p,
+	//li,
+	//ol {
+	//	&:last-child,
+	//	&:last-child a {
+	//		margin-bottom: 0;
+	//	}
+	//}
+
+	@include media-breakpoint-up(lg) {
+		padding: 0;
+	}
+}
+
+.o-container {
+	@include container();
+
+	&--md {
+		@include container( container-width(md) );
+	}
+
+	&--xl {
+		@include container( container-width(xl) );
+	}
+
+	&--hero {
+        border: 1px solid palette(background);
+        padding: space(1) 0;
+
+        @include media-breakpoint-up(sm) {
+            //padding: 0 space(4);
+        }
+
+        @include media-breakpoint-up(lg) {
+            //padding: 0 space(2);
+        }
+	}
+
+    &--super {
+        //@include container( container-width(su) );
+		max-width: 100%;
+		padding: 0 space(1.5);
+
+        @include media-breakpoint-up(sm) {
+            padding: 0 space(4);
+        }
+	}
+}
+
+.Column--post {
+	max-width: container-width(xs);
+	// @include when-inside(".o-container")     { margin-left: 0; }
+	// @include when-inside(".o-container--xl") { margin-left: calc( (1200-960) / 2 ); }
+}

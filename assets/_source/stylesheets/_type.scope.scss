@@ -1,0 +1,20 @@
+
+
+// --------------------------------------------------------------------------
+//   TYPE: MARKDOWN SCOPES
+// --------------------------------------------------------------------------
+
+
+.Block--text {
+	margin: 0 auto;
+	max-width: container-width(md);
+	// @include when-inside(".o-container")     { margin-left: 0; }
+	@include when-inside(".o-container--xl") { margin-left: calc( (1200-960) / 2 ); }
+
+	h1 {
+		@include display();
+		margin-bottom: space(2);
+		text-align: center;
+	}
+}
+ 

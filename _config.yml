@@ -1,0 +1,49 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# For SEO, see: https://github.com/jekyll/jekyll-seo-tag
+title: Wild Aviation Services
+description: |
+    Wild Aviation Services represent the best of Aftermarket Dash-8 parts. With years of logistics and material handling experience and aviation ownership, our warehouse is stocked and staffed to ensure that service and parts availability is maintained to the highest standard, 24 hours per day, 7 days per week. Located within close proximity to the domestic and international airports in Cairns, Australia, freight consignment worldwide is available. This unique combination of technical expertise, and first-hand experience on what it is like to keep aircraft flying is the foundation of all our offerings.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+imageurl: "/assets/images/"
+javascriptsurl: "/assets/javascripts/"
+social:
+    instagram: https://instagram.com/callumflack
+twitter:
+    username: callumflack
+google-analytics: UA-
+
+# Defaults
+
+# Collections
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+    input: GFM
+    syntax_highlighter: rouge
+
+# Build settings
+exclude:
+    - assets/_source
+    - CNAME
+    - Gemfile
+    - Gemfile.lock
+    - gulpfile.js
+    - node_modules
+    - package.json
+    - README.md
+    - TODO.md
+
+# Plugin settings
+gems:
+    - jekyll-feed
+    - jekyll-sitemap
+    - jekyll-seo-tag

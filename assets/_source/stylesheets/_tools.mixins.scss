@@ -1,0 +1,194 @@
+
+
+// --------------------------------------------------------------------------
+//   MIXINS
+// --------------------------------------------------------------------------
+
+
+// Using font-face? Use this with it.
+// --------------------------------------------------------------------------
+
+@mixin typeReset() {
+    font-stretch: normal;
+	font-style: normal;
+	font-weight: normal;
+}
+
+
+// Media queries
+// I love this version, but I need more flexibility. This will be deprecated
+// by BS4's breakpoints mixin. See: `tools.mixins.breakpoints`
+// --------------------------------------------------------------------------
+// @link http://sass-guidelin.es/#breakpoint-manager Sass Guidelines - Breakpoint Manager
+// @link http://www.sitepoint.com/managing-responsive-breakpoints-sass/
+
+//@mixin media-breakpoint-up($breakpoint) {
+//	// $raw-query: map-get($grid-breakpoints, $breakpoint);
+//	// $raw-query: map-fetch($size, breakpoint, $breakpoint);
+//	$raw-query: size(breakpoint, $breakpoint);
+//
+//	@if $raw-query {
+//		$query: if(type-of($raw-query) == 'string', unquote($raw-query), inspect($raw-query));
+//
+//		@media #{$query} {
+//			@content;
+//		}
+//
+//	} @else {
+//		@error 'No value found for `#{$breakpoint}`. '
+//			 + 'Please make sure it is defined in `$breakpoints` map.';
+//	}
+//}
+
+
+// Clearfix
+// --------------------------------------------------------------------------
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: " "; // 1
+		display: table; // 2
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+
+// Event wrapper
+// --------------------------------------------------------------------------
+// @author Harry Roberts
+// @param {Bool} $self [false] - Whether or not to include current selector
+// @link https://twitter.com/csswizardry/status/478938530342006784
+// @link https://css-tricks.com/snippets/sass/simplifying-contexts-events/
+
+@mixin on-event($self: false) {
+	@if $self {
+		&,
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	} @else {
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	}
+}
+
+
+// Context-based selector
+// --------------------------------------------------------------------------
+// Make a context-based selector a little more friendly
+// @author Hugo Giraudel
+// @param {String} $context
+// @link https://css-tricks.com/snippets/sass/simplifying-contexts-events/
+// .my-element {
+//     display: flex;
+//     @include when-inside('.no-flexbox') {
+//         display: table;
+//     }
+// }
+// Replacing…
+// .my-element {
+//     display: flex;
+//     .no-flexbox & {
+//         display: table;
+//     }
+// }
+
+@mixin when-inside($context) {
+	#{$context} & {
+		@content;
+	}
+}
+
+
+// Transition base
+// --------------------------------------------------------------------------
+// Quick and easy. Could extend this…
+
+@mixin baseTransition(
+	$property: all
+) {
+	transition-property: $property;
+	transition-duration: map-fetch($transition, duration, long);
+	transition-timing-function: map-fetch($transition, type, base);
+}
+
+
+// Scut rem fallback
+// --------------------------------------------------------------------------
+// http://davidtheclark.github.io/scut/remFallback.html
+// Requires: scut-rem and scut-strip-unit.
+// Renamed remFallback() from scut-remFallback() for ease of use.
+
+@mixin remFallback (
+	$pixels,
+	$property: font-size
+) {
+
+	$px-vals: null;
+	@each $val in $pixels {
+		$val-in-px: scut-strip-unit($val) * 1px;
+		$px-vals: append($px-vals, $val-in-px);
+	}
+	$rem-vals: rem($pixels);
+
+	#{$property}: $px-vals;
+	#{$property}: $rem-vals;
+
+}
+
+
+// Transform smoothing hacks
+// --------------------------------------------------------------------------
+// As is often the case, some devices/browsers need additional code to get CSS to work
+// in the most desired way. These mixins are used to quickly drop in hacks for each element
+// Find out more here: https://github.com/IanLunn/Hover/wiki/Hacks-Explained
+// 1. Improve performance on mobile/tablet devices
+// 2. Improve aliasing on mobile/tablet devices
+// 3. Transforms need to be block-level to work
+// 4. @CF: 'will-change' is almost available. See: https://dev.opera.com/articles/css-will-change-property/
+
+@mixin hardwareAccel() {
+	transform: translateZ(0); //1.
+}
+
+@mixin improveAntiAlias() {
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0); // 2.
+}
+
+@mixin fontSmooth() {
+	backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin forceBlockLevel() {
+	display: inline-block; //3.
+	// vertical-align: middle;
+}
+
+@mixin anticipatePainting {
+	will-change: all; // 4.
+}
+
+@mixin smoothTransition() {
+	//@include forceBlockLevel();
+	@include hardwareAccel();
+	/* @include improveAntiAlias(); */
+	@include fontSmooth();
+	/* @include anticipatePainting(); */
+}

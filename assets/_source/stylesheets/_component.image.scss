@@ -1,0 +1,24 @@
+
+
+// --------------------------------------------------------------------------
+//   COMPONENT: IMAGE
+// --------------------------------------------------------------------------
+
+
+.c-image--circle {
+    border-radius: 50%;
+}
+
+// Extend an image outside the text column
+.c-image--wide {
+    @include media-breakpoint-up(xs) {
+        margin-left: calc( ( map-fetch($size, container, text-column) * 0.5 ) - 50vw) !important;
+        max-width: initial;
+        width: 100vw !important;
+    }
+
+    @include media-breakpoint-up(lg) {
+        margin-left: -( (map-fetch($size, container, default) - map-fetch($size, container, text-column)) * 0.5) !important;
+        width: auto !important;
+    }
+}

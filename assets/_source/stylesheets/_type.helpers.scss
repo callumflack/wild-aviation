@@ -1,0 +1,108 @@
+
+
+// --------------------------------------------------------------------------
+//   TYPE MIXIN HELPERS
+// --------------------------------------------------------------------------
+
+
+// Text sizes…
+// Map key must equal class name.
+// TODO 160630: if no other breakpoints, null.
+
+@mixin textSize(
+	$mixinSize: Text
+) {
+	font-size: fontsize($mixinSize, xs);
+	@include media-breakpoint-up(sm) { font-size: fontsize($mixinSize, sm); }
+}
+
+
+// Text block mixins…
+
+@mixin reverseTextBlock {
+	h1,
+	p,
+	ul {
+		color: palette(light) !important;
+	}
+}
+
+//.c-text-block--reverse { @include reverseTextBlock(); }
+
+@mixin centerTextBlock {
+	h1,
+	p,
+	ul {
+		text-align: center !important;
+	}
+}
+
+//.c-text-block--center { @include centerTextBlock(); }
+
+@mixin headerTextBlock {
+	h1 { margin-bottom: space(0.2); }
+	p  { margin-bottom: space(0.35); }
+}
+
+//.c-text-block--header { @include headerTextBlock(); }
+
+
+// Base spacer rules?
+// p + h2 { margin-top: $space * 1.75; }
+
+.u-pSpace {
+    //margin-top:
+}
+
+//p + cite { margin-top: space(1); }
+h2 + h3  { margin-top: space(0.2); }
+h3 + p   { margin-top: space(0.4); }
+
+
+
+
+
+
+
+
+
+
+
+// Attempts at @each loops on sass maps
+// --------------------------------------------------------------------------
+
+// Loop thru sizes…
+
+// @each $breakpoint in map-keys($grid-breakpoints) {
+// 	@include media-breakpoint-up($breakpoint) {
+// 		.u-#{$breakpoint}-textLeft             { text-align: left !important; }
+// @each $theme in map-keys( map-get($config, "themes") ) {
+
+// this didn't work
+
+// @each $increment in map-keys($fontsize) {
+//
+// 	.#{$increment} {
+//
+// 		@each $response in map-values( map-get($fontsize, $increment) ) {
+//
+// 			@include media-breakpoint-up($response) { font-size: fontsize($increment, $response); }
+// 			// font-size: fontsize($increment, $response);
+// 			// @include media-breakpoint-up(md) { font-size: fontsize($increment, md); }
+//
+// 		}
+// 	}
+//
+// }
+
+
+// Loop thru sizes… But I need mixins first, not classes…
+
+// @each $size in map-keys($fontsize) {
+//
+// 	.#{$size} {
+// 		font-size: map-fetch($fontsize, $size, xs);
+// 		@include media-breakpoint-up(sm) { font-size: map-fetch($fontsize, $size, sm); }
+// 	}
+//
+// }

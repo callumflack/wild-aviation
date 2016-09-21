@@ -1,0 +1,80 @@
+
+
+// --------------------------------------------------------------------------
+//   COMPONENT: PRODUCT CARD
+// --------------------------------------------------------------------------
+
+
+@keyframes zoom {
+	0%   { transform: scale(1); }
+	100% { transform: scale(1.75); }
+}
+
+@mixin glow() {
+	@include smoothTransition();
+	transition-duration: 0.3s;
+	transition-property: box-shadow;
+
+	&:hover {
+		box-shadow: 0 0 space(3) palette(medium);
+	}
+}
+
+.c-product {
+    @include glow();
+    cursor: pointer;
+    display: block;
+
+    //see below, after other styles to avoid fuckups
+    &:hover { }
+
+
+        //.FlexEmbed-content {
+        //    //animation: zoom 80s infinite;
+        //}
+}
+
+.c-product-text {
+    @include textRg();
+    background-color: palette(background);
+    color: palette(brand-complement);
+    padding: space(0.6) space(1) space(0.9);
+    text-transform: uppercase;
+}
+
+.c-product-name {
+    @include textLg();
+    color: palette(brand-complement);
+    font-family: $font-text-bold;
+    margin-bottom: space(0.1);
+    text-transform: none;
+}
+
+.c-product-description {
+    text-transform: none;
+    margin-bottom: space(1.2);
+}
+
+.c-product-price {
+    @include baseTransition();
+    color: palette(brand);
+    font-family: $font-text-bold;
+    //margin-bottom: space(1.8);
+}
+
+.c-product-action {
+    color: rgba( palette(brand), 0.5 );
+    text-align: right;
+}
+
+//hovers
+.c-product {
+    @include on-event() {
+        cursor: pointer;
+
+        .c-product-action {
+            @include baseTransition();
+            color: rgba( palette(brand), 1 );
+        }
+    }
+}

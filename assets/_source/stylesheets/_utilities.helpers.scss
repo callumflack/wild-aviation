@@ -1,0 +1,180 @@
+
+
+// --------------------------------------------------------------------------
+// HELPERS
+// --------------------------------------------------------------------------
+
+
+
+// Sass tips
+// --------------------------------------------------------------------------
+
+// [class*="Text"] {
+
+// The interpolation brackets #{ } are needed as two touching ampersands are invalid Sass.
+// https://css-tricks.com/the-sass-ampersand/
+// http://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375
+// &#{a} {
+//     @include on-event() {
+//         opacity: 0.4;
+//         transition: opacity 500ms ease;
+//     }
+// }
+
+
+// Sass-maps debugging
+// --------------------------------------------------------------------------
+// http://www.sitepoint.com/debugging-sass-maps/
+// I can't get this to work, but it'd be very handy…
+// .Debug { @include debug-map($color); }
+
+
+// Full height or width
+// --------------------------------------------------------------------------
+
+.u-fullHeight       { height: 100%; }
+.u-fullWidth        { width: 100%; }
+.u-mxs-fullWidth    { @include media-breakpoint-down(sm) { width: 100%; } }
+
+
+// basic hide for liquid conditionals
+// --------------------------------------------------------------------------
+.u-hide             { display: none; }
+
+
+// Custom flex components
+// --------------------------------------------------------------------------
+
+// .Flex--alignCenter {
+// 	align-items: center;
+// 	display: flex;
+// 	justify-content: center;
+// 	min-height: 100%;
+// }
+
+
+// Custom flexEmbeds
+// --------------------------------------------------------------------------
+
+.FlexEmbed-ratio--8by9 { padding-bottom: 25%; }
+.FlexEmbed-ratio--12by5 { padding-bottom: 42%; }
+
+
+// Colors
+// --------------------------------------------------------------------------
+
+.u-colorWhite       { color: palette(background) !important; }
+.u-colorFaint       { color: palette(faint) !important; }
+.u-colorLight       { color: palette(light) !important; }
+.u-colorMuted       { color: palette(muted) !important; }
+.u-colorMedium      { color: palette(medium) !important; }
+.u-colorDark        { color: palette(charcoal) !important; }
+.u-colorBlack       { color: palette(black) !important; }
+.u-colorBrand       { color: palette(brand) !important; }
+.u-colorBrandMuted  { color: rgba( palette(brand), 0.5 ) !important; }
+.u-colorBrandLight  { color: rgba( palette(brand), 0.3 ) !important; }
+.u-colorBrandAlt    { color: palette(brand-complement) !important; }
+.u-colorBrandCount  { color: palette(brand-counter) !important; }
+
+.u-colorMutedBlock {
+	* { color: palette(muted) !important; }
+	a { @include on-event() { color: palette(black); } }
+}
+
+.u-colorBlackBlock {
+	* { color: palette(black) !important; }
+}
+
+
+// Background colors
+// --------------------------------------------------------------------------
+
+.u-bgWhite          { background-color: palette(background) !important; }
+.u-bgFaint          { background-color: palette(faint); }
+.u-bgNeutral        { background-color: palette(neutral) !important; }
+.u-bgNeutralLight   { background-color: palette(neutral-light) !important; }
+.u-bgNeutralDark    { background-color: palette(neutral-dark) !important; }
+.u-bgCharcoal       { background-color: palette(charcoal) !important; }
+.u-bgDark           { background-color: palette(dark) !important; }
+.u-bgBlack          { background-color: palette(black) !important; }
+
+.u-bgBrand          { background-color: palette(brand) !important; }
+.u-bgBrandAlt       { background-color: palette(brand-complement) !important; }
+
+.u-sm-bgNeutral     { @include media-breakpoint-up(sm) { background-color: palette(neutral) !important; } }
+
+
+// Border colors
+// --------------------------------------------------------------------------
+
+.u-borderBase       { border: 1px solid palette(base) !important; }
+.u-borderMuted      { border: 1px solid palette(muted) !important; }
+.u-borderDark       { border: 1px solid palette(dark) !important; }
+.u-borderBrand      { border: 1px solid palette(brand) !important; }
+
+.u-sm-borderDark    { @include media-breakpoint-up(sm) { border: 1px solid palette(dark) !important; } }
+
+
+// // Font sizes
+// // --------------------------------------------------------------------------
+//
+// .u-textSizeXs       { font-size: size(font, text-xs) !important; }
+// .u-textSizeSm       { font-size: size(font, text-sm) !important; }
+// .u-textSizeRg       { font-size: size(font, text) !important; }
+// .u-textSizeLg       { font-size: size(font, text-lg) !important; }
+//
+// .u-sm-textSizeRg    { @include media-breakpoint-up(sm) { font-size: size(font, text) !important; } }
+//
+// .u-headerSizeRg {
+// 	font-size: map-fetch($size, font, headerRg, xs) !important;
+// 	@include media-breakpoint-up(xs) { font-size: map-fetch($size, font, headerRg, base) !important }
+// }
+//
+// .u-textCenterBlock { > * { @extend .u-textCenter; } }
+// .u-textRightBlock  { > * { @extend .u-textRight; } }
+//
+// .u-textXsBlock     { > *, a { @include TextXs(); } }
+// .u-textSmBlock     { > *, a { @include textSm(); } }
+
+
+// Weights & italics
+// --------------------------------------------------------------------------
+
+.u-textWtLt        { font-family: $font-text-light !important; }
+.u-textWtRg        { font-family: $font-text-regular !important; }
+.u-textWtMd        { font-family: $font-text-medium !important; }
+.u-textWtSemi      { font-family: $font-text-semi !important; }
+
+.u-textEmRg        { font-family: $font-text-regular-i !important; }
+.u-textEmMd        { font-family: $font-text-medium-i !important; }
+
+
+// Rounded wells. Usually require a background-color or a border.
+// --------------------------------------------------------------------------
+
+.u-well             { border-radius: map-fetch($border-radius, base); }
+.u-well--lg         { border-radius: map-fetch($border-radius, large); }
+
+
+// Opacity
+// --------------------------------------------------------------------------
+
+.u-opaque           { opacity: 1 !important; }
+
+
+// Align blocks
+// --------------------------------------------------------------------------
+
+.u-alignBlockUp {
+	@include media-breakpoint-up(sm) {
+		// transform: translateY( rem(-5) );
+		margin-top: rem(-5);
+	}
+}
+
+.u-alignBlockDown {
+	@include media-breakpoint-up(sm) {
+		margin-top: rem(5);
+		// transform: translateY( rem(8) );
+	}
+}

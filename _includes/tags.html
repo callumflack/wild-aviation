@@ -1,0 +1,24 @@
+{% comment %}
+    From: http://katydecorah.com/
+{% endcomment %}
+
+{% if post.tags.size > 0 %}
+    <div class="Post-tags">
+        {% for category in post.categories %}
+            <a href="/" class="">{{ category }}</a>,&nbsp;
+        {% endfor %}
+        {% for tag in post.tags %}
+            <a href="/" class="">{{ tag }}</a>{% if forloop.last %}{% else %},&nbsp;{% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% comment %}
+{% if post.tags.size > 0 %}
+    <div class="Post-tags">
+        {% for tag in post.tags %}
+            <a href="/tags/#{{ tag | downcase | replace:' ','_'}}" class="tag">{{ tag }}</a>{% if forloop.last %}{% else %},&nbsp;{% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
+{% endcomment %}

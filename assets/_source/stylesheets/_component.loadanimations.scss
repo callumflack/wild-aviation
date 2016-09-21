@@ -1,0 +1,110 @@
+
+
+// --------------------------------------------------------------------------
+//   ANIMATION COMPONENTS
+//   Ripped from: thisalso.com
+// --------------------------------------------------------------------------
+
+
+// Animation API
+// --------------------------------------------------------------------------
+// For example:
+// > animation: header-in 600ms cubic-bezier(0.19, 1, 0.22, 1) 600ms 1 normal both;
+// animation-name: header-in;
+// animation-duration: 600ms;
+// animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+// animation-delay: 400ms;
+// animation-iteration-count: 1;
+// animation-direction: normal;
+// animation-fill-mode: both;
+// animation-play-state: initial;
+
+
+// @keyframes postZoom {
+// 	0%   { transform: scale(1); }
+// 	100% { transform: scale(1.75); }
+// }
+
+
+// Nav
+
+@keyframes logoIn {
+	from {
+		opacity: 0;
+		transform: translateY(-30px)
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0px)
+	}
+}
+
+@mixin logoIn() { animation: logoIn 600ms cubic-bezier(0.19, 1, 0.22, 1) 200ms 1 normal both; }
+//.Nav--animateIn { @include logoIn(); }
+
+
+// Header
+
+@keyframes headerIn {
+	from {
+		opacity: 0;
+		transform: translateY(-60px)
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0px)
+	}
+}
+
+@mixin headerIn() { animation: headerIn 600ms cubic-bezier(0.19, 1, 0.22, 1) 400ms 1 normal both; }
+.Header--animateIn { @include headerIn(); }
+
+
+// First major content block
+
+@keyframes contentIn {
+	from {
+		opacity: 0;
+		transform: translateY(60px)
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0px)
+	}
+}
+
+@mixin contentIn() { animation: contentIn 600ms cubic-bezier(0.19, 1, 0.22, 1) 600ms 1 normal both; }
+//.Hero--animateIn,
+//.Content--animateIn { @include contentIn(); }
+
+
+
+
+
+
+// Page out
+
+@keyframes page-out {
+	to {
+		opacity: 0;
+		transform: translate3d(0, 0, 0) translateY(60px)
+	}
+}
+
+@keyframes loading {
+	from {
+		background-position: 0 0px
+	}
+	to {
+		background-position: 0 -192px
+	}
+}
+
+@keyframes bwq-animations {
+	from {
+		background-position: 0 0%
+	}
+	to {
+		background-position: 0 200%
+	}
+}

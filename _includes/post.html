@@ -1,0 +1,14 @@
+<article class="Post">
+    <h1 class="c-headline">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </h1>
+    <div class="Post-content">
+        {{ post.content }}
+    </div>
+    <div class="Post-meta">
+        <date>{{ post.date | date: "%B %d" }}, {{ post.date | date: "%Y" }}</date>
+        <span>•</span>
+        Filed under:
+        {% include tags.html %}
+    </div>
+</article>

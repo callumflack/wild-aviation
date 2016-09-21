@@ -1,0 +1,231 @@
+
+
+// --------------------------------------------------------------------------
+// FORM
+// --------------------------------------------------------------------------
+
+
+form {
+    @include media-breakpoint-up(sm) {
+        width: 75%;
+    }
+}
+
+input,
+textarea,
+select,
+label {
+	@include on-event() {
+		outline: 0;
+	}
+}
+
+//input:not([type="radio"]),
+//input:not([type="submit"]),
+//input:not(".Button"),
+//input[type="text"],
+//input[type="email"],
+//input[type="tel"],
+
+input,
+textarea {
+	background: transparent;
+    border: 0;
+    display: inline-block;
+    resize: none;
+    width: 100%;
+    -webkit-appearance: none;
+
+    // theme
+    @include textRg();
+    border: 1px solid rgba( palette(text), 0.25 );
+    border-radius: 3px;
+    line-height: map-fetch($button-height, base);
+	padding: $inputLineHeightAdjustment space(0.5) 0;
+	transition: all map-fetch($transition, duration, long) map-fetch($transition, type, base);
+
+    &:not(:last-child) {
+        margin-top: $paragraphSpace;
+    }
+
+    @include media-breakpoint-down(sm) {
+        //border: 1px solid rgba( palette(brand), 0.4 );
+    	//padding-left: space(0.5);
+    }
+
+    // theme unused
+    //border-radius: map-fetch($border-radius, base);
+    //padding: 0 space(2/3);
+
+	//@include on-event() {
+	//	outline: 0;
+	//}
+
+    // filled-in form styling
+	&:-webkit-autofill {
+		-webkit-box-shadow: 0 0 0 rem(100) palette(faint) inset;
+		-webkit-text-fill-color: palette(brand);
+		background-clip: padding-box;
+	}
+
+	$color-placeholder: palette(medium);
+
+	&::-webkit-input-placeholder { color: $color-placeholder; }
+	&:-moz-placeholder           { color: $color-placeholder; }
+	&::-moz-placeholder          { color: $color-placeholder; }
+	&:-ms-input-placeholder      { color: $color-placeholder; }
+}
+
+input + p,
+textarea + p {
+    margin-top: $paragraphSpace;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// input,
+// textarea {
+// 	border: 1px solid palette(base);
+// 	margin-bottom: space(0.5);
+// }
+//
+// textarea {
+// 	line-height: 1.5;
+// 	padding-top: space(0.5);
+// }
+
+
+
+
+
+// REFACTOR: text inputs only so I don't override radio btn component styles…
+
+//input[type="text"], input[type="email"], input[type="tel"] {
+//	@include textRg();
+//	color: rgba( palette(brand-counter), 0.7 );
+//	background: transparent;
+//	border: 0;
+//	border-bottom: 1px solid transparent;
+//	border-color: rgba( palette(brand-counter), 0.4 );
+//	// border-radius: map-fetch($border-radius, base);
+//	display: inline-block;
+//	// font-family: $font-text-regular;
+//	line-height: map-fetch($button-height, lg);
+//	padding: 0;
+//	resize: none;
+//	transition: all map-fetch($transition, duration, long) map-fetch($transition, type, base);
+//	width: 100%;
+//	-webkit-appearance: none;
+//
+//	@include on-event() {
+//		outline: 0;
+//	}
+//
+//	@include media-breakpoint-down(sm) {
+//		// font-size: 16px;
+//	}
+//
+//	&:-webkit-autofill {
+//		-webkit-box-shadow: 0 0 0 rem(100) darken( palette(neutral),4%) inset;
+//		-webkit-text-fill-color: palette(medium);
+//		background-clip: padding-box;
+//	}
+//
+//	$color-placeholder: rgba( palette(brand-counter), 0.7 );
+//
+//	&::-webkit-input-placeholder { color: $color-placeholder; }
+//	&:-moz-placeholder           { color: $color-placeholder; }
+//	&::-moz-placeholder          { color: $color-placeholder; }
+//	&:-ms-input-placeholder      { color: $color-placeholder; }
+//}
+
+
+// Floating label pattern
+// Usually requires JS unless you're using React…
+// --------------------------------------------------------------------------
+
+/* uncss:ignore */
+//.Form-group {
+//	position: relative;
+//
+//	//&:not(:last-child) {
+//	//	margin: 0 0 space(1.1);
+//	//}
+//
+//	label {
+//		@include textLg();
+//		color: rgba( palette(brand), 1 );
+//		cursor: text;
+//		left: 0;
+//		position: absolute;
+//		top: 6px;
+//		transition: all map-fetch($transition, duration, fast) map-fetch($transition, type, fine);
+//		z-index: 99;
+//	}
+//
+//	input.Form-control,
+//	textarea.Form-control {
+//	}
+//
+//	&--sm {
+//		// line-height: map-fetch($button-height, lg);
+//		line-height: 38px;
+//
+//		label {
+//			@include textRg();
+//			color: palette(brand-counter);
+//		}
+//
+//		input.Form-control {
+//			line-height: inherit;
+//		}
+//	}
+//
+//	// retain theme typography alignment
+//	// input.Button {
+//	//     padding-top: 2px;
+//	// }
+//
+//	// /* uncss:ignore */
+//	// &.is-active > label:not(.has-error) {
+//	//     // color: palette(charcoal);
+//	//     // font-size: rem($sizeTextSm * 0.65);
+//	//     opacity: 0;
+//	//     transform: translateY(rem(-10));
+//	// }
+//}
+//
+//.Form-group.is-active {
+//	label {
+//		font-size: fontsize(text--sm, sm);
+//		opacity: 1;
+//		transform: translate(1px, -16px);
+//	}
+//
+//	input.Form-control {
+//		border-color: rgba( palette(brand-complement), 1 );
+//		color: palette(brand-complement);
+//	}
+//}
+//
+//.Form-group.has-error {
+//	label {
+//		color: palette(bad-news);
+//	}
+//
+//	input.Form-control {
+//		border-color: palette(bad-news);
+//	}
+//}

@@ -1,0 +1,323 @@
+
+
+// --------------------------------------------------------------------------
+//   LAYOUT: SECTIONS
+// --------------------------------------------------------------------------
+
+
+@mixin blockSpacer {
+	content: 'viewport-units-buggyfill; padding: calc(22.5vh) 0;';
+	// padding: space(10) 0;
+	padding: calc( #{$blockSpace}  + (#{$paragraphSpace} * 1.25) ) 0;
+}
+
+@mixin betweenSpacer {
+	content: 'viewport-units-buggyfill; margin: calc(9vh + 35.625px) auto;';
+	margin: calc( (#{$blockSpace} / 2.5) + (#{$paragraphSpace} * 1.25) ) auto;
+}
+
+@mixin heroTuck {
+	@include media-breakpoint-up(md) {
+		padding-left: 7.03125%;
+		padding-right: 7.03125%;
+	}
+
+	@include media-breakpoint-up(su) {
+		padding-left: 13.67188%;
+		padding-right: 13.67188%;
+	}
+}
+
+@mixin insetTuck {
+	padding-left: 7.03125%;
+	padding-right: 7.03125%;
+
+	@include media-breakpoint-up(su) {
+		padding-left: 13.67188%;
+		padding-right: 13.67188%;
+	}
+}
+
+@mixin textTuck {
+	@include media-breakpoint-down(md) {
+		padding-left: 7.03125%;
+		padding-right: 7.03125%;
+	}
+}
+
+
+
+// Primary structural elements
+// --------------------------------------------------------------------------
+
+.Main {
+	// see component.nav
+	// background-image: linear-gradient(to bottom, rgba( palette(brand), 0.05 ) 0%, rgba( palette(brand), 0.0 ) 25%);
+}
+
+.Header {
+	// sweet!
+}
+
+.Content {
+	@include blockSpacer();
+
+	&--bottomPadding {
+		@include blockSpacer();
+		padding-top: 0 !important;
+	}
+
+	&--post {
+		content: "";
+		padding: 0;
+	}
+}
+
+
+
+// Block component.
+// Defaults to the hero image.
+// --------------------------------------------------------------------------
+
+.Block {
+	@include heroTuck();
+	// content: "buggyfill";
+	// height: 100vh;
+	// width: 100vw;
+	// height: 75vh;
+}
+
+
+// Block vars
+
+.Block--neutral { background-color: palette(neutral); }
+.Block--black   { @include reverseTextBlock(); background-color: palette(black); }
+
+
+
+// Text blocks: widths & styles
+// Block--widthLg?
+// --------------------------------------------------------------------------
+
+.Block--masthead {
+	@include textTuck();
+	margin: auto;
+	max-width: container-width(lg);
+
+	> p {
+		margin: 0 auto space(0.4);
+		max-width: container-width(md);
+		text-align: center;
+	}
+
+	@include when-inside(".Header") {
+		> .Display {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// .Block--masthead-text {
+// 	@include headline();
+// 	margin: 0 auto;
+// 	max-width: container-width(ml);
+// }
+
+
+
+// Column blocks: widths
+// --------------------------------------------------------------------------
+
+.Block--narrow {
+	@include textTuck();
+	margin: auto;
+	max-width: container-width(md);
+}
+
+.Block--mid {
+	@include textTuck();
+	margin: auto;
+	max-width: container-width(ll);
+}
+
+
+
+// Block space betweens
+// --------------------------------------------------------------------------
+
+.Block--space {
+	@include blockSpacer();
+	display: block;
+	padding: calc(#{$blockSpace} * 1.5) 0;
+}
+
+// .Content ~ .Block--space,
+.Content > .Block--space {
+	padding-bottom: 0;
+}
+
+.Block--halfSpace {
+	// @include blockSpacer();
+	border: 0;
+	border-top: 1px solid palette(base);
+	display: block;
+	padding: calc(#{$blockSpace} * 0.625) 0;
+
+	@include on-event() {
+		border-color: palette(base);
+	}
+}
+
+.Block--between {
+	@include betweenSpacer();
+}
+
+.Block--betweenT {
+	@include betweenSpacer();
+	margin-bottom: 0;
+}
+
+
+
+// Block widths (and figures)
+// --------------------------------------------------------------------------
+
+.Block--figure {
+	content: 'viewport-units-buggyfill; padding-bottom: calc(100vh);';
+	padding: calc(#{$blockSpace} / 2) 0;
+}
+
+.Block--figureSm {
+	content: 'viewport-units-buggyfill; padding-bottom: calc(100vh);';
+	margin: calc(#{$blockSpace} / 4) auto;
+	max-width: container-width(sm);
+}
+
+.Block--figureLg {
+	content: 'viewport-units-buggyfill; padding-bottom: calc(100vh);';
+	margin: calc(#{$blockSpace} / 2.5) auto;
+	max-width: container-width(lg);
+
+	&Img {
+		background-color: palette(light);
+		height: 750px;
+		width: 100%;
+	}
+}
+
+$breakContainerSuper: calc( ( #{ container-width(md) } - 80vw) * 0.5 );
+
+.Block--figureSu {
+	content: 'viewport-units-buggyfill; padding-bottom: calc(100vh);';
+	margin: calc(#{$blockSpace} / 2.5) #{$breakContainerSuper};
+	max-width: 80vw;
+}
+
+
+
+
+// Block video
+// --------------------------------------------------------------------------
+
+.Block--video {
+	@include betweenSpacer();
+	@include textTuck();
+	margin-bottom: 0;
+	max-width: 430px;
+	max-width: container-width(md) * 0.5 - 2px;
+	text-align: center;
+
+	video {
+	}
+}
+
+.Frame {
+	border: 1px solid #d5d5d5;
+}
+
+.FlexEmbed-ratio {
+	&--iphone6 { padding-bottom: 205.81395%; }
+	&--ipadL   { padding-bottom: 74.75%; } // 75.21
+	&--laptop  { padding-bottom: 70.25%; }
+}
+
+.Screen--iphone6 {
+	margin-top: 25.25%;
+	width: 87.2093%;
+}
+
+.Screen {
+	width: 100%;
+}
+
+
+
+// tests
+
+
+
+
+
+
+
+
+// Block heights
+// --------------------------------------------------------------------------
+
+.Block--half {
+	content: "buggyfill";
+	height: 50vh;
+	width: 50vw;
+}
+
+.Block--height1of2 {
+	content: "buggyfill";
+	height: 50vh;
+}
+
+.Block--height2of3 {
+	content: "buggyfill";
+	height: 66.666666666vh;
+}
+
+.Block--height3of4 {
+	content: "buggyfill";
+	height: 75vh;
+}
+
+.Block--height5of6 {
+	content: "buggyfill";
+	height: 83.3333333vh;
+}
+
+
+
+// Scoped text within a block (for .md)
+// --------------------------------------------------------------------------
+
+.s-Block {
+	h1 {
+		@include display();
+	}
+
+	h2 {
+		@include headlineSm();
+	}
+
+	h1,
+	h2 {
+		margin-bottom: space(1.25);
+		text-align: center;
+	}
+
+	p + h1,
+	p + h2,
+	ul + h1,
+	ul + h2 {
+		margin-top: space(2.5);
+	}
+
+	ul {
+		// margin-top: space(-1.25);
+	}
+}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: page.lang | default: 'en' }}">
+
+    {% include head.html %}
+
+<body>
+
+    {{ content }}
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js" integrity="sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw=" crossorigin="anonymous"></script>
+	<script src="{{ site.javascriptsurl }}lib.flickity.min.js"></script>
+	<script src="{{ site.javascriptsurl }}application.min.js"></script>
+    {% include google-analytics.html %}
+
+</body>
+
+</html>

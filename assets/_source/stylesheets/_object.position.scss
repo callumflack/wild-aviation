@@ -1,0 +1,67 @@
+
+
+// --------------------------------------------------------------------------
+//   DISPLAY OBJECTS
+//   From: SUIT POSITION UTILS
+//   Version 1.0.1 160629
+//   See: https://github.com/suitcss/utils-position
+// --------------------------------------------------------------------------
+
+
+// API
+// u-posAbsolute
+// u-posFixed
+// o-posAbsoluteCenter
+// o-posFixedCenter
+// o-posFullScreen
+
+// posAbsoluteCenter legacy:
+// bottom: 0 !important;
+// left: 0 !important;
+// margin: auto !important;
+// position: absolute !important;
+// right: 0 !important;
+// top: 0 !important;
+
+
+@mixin u-posAbsolute {
+	position: absolute;
+}
+
+@mixin u-posFixed {
+	backface-visibility: hidden;
+	position: fixed;
+}
+
+@mixin o-posCenter(
+	$posCenterPosition: absolute
+) {
+	left: 50%;
+	position: $posCenterPosition;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin o-posFullScreen(
+	$posFullScreen: fixed
+) {
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	position: $posFullScreen;
+	right: 0;
+	top: 0;
+}
+
+.o-posAbsoluteCenter    { @include o-posCenter(); }
+.o-posFixedCenter       { @include o-posCenter(fixed); }
+.o-posFullScreen        { @include o-posFullScreen(); }
+.o-posAbsoluteCenterAlt { @include o-posFullScreen(absolute); }
+
+// 1. Make sure fixed elements are promoted into a new layer,
+//    for performance reasons.
+
+.o-posFullScreen,
+.o-posFixedCenter {
+	backface-visibility: hidden; // 1
+}

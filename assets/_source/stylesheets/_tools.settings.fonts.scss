@@ -1,0 +1,27 @@
+// Fonts
+// --------------------------------------------------------------------------
+
+// Define stacks
+
+$font-mono-stack      : Menlo, Monaco, Consolas, "Liberation Mono", 'Courier New', 'Andale Mono', 'Lucida San Typewriter', 'Lucida Console', monospace;
+$sans-font-stack      : -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", "Droid Sans", "Segoe UI", "Fira Sans", "Ubuntu", sans-serif;
+$serif-font-stack     : Georgia, "Times New Roman", "Times", serif;
+$display-font-stack   : $sans-font-stack;
+
+// Is the html-level font stack sans or serif?
+$main-font-stack      : $sans-font-stack;
+
+// would you like to namespace your font?
+$text-font-name       : '';
+
+// fill em out
+$font-text-thin       : #{$text-font-name}thin;
+$font-text-light      : #{$text-font-name}light;
+$font-text-book       : #{$text-font-name}book;
+$font-text-regular    : #{$text-font-name}regular;
+$font-text-medium     : #{$text-font-name}medium;
+$font-text-semibold   : #{$text-font-name}semibold;
+$font-text-bold       : #{$text-font-name}bold;
+$font-text-extrabold  : #{$text-font-name}extrabold;
+$font-text-black      : #{$text-font-name}bold;
+$font-text-display    : #{$text-font-name}display;

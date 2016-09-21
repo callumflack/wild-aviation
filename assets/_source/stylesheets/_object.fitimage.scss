@@ -1,0 +1,44 @@
+
+// --------------------------------------------------------------------------
+// OBJECT: OBJECT-FIT IMAGE
+// @URL: http://codepen.io/robinrendle/pen/BywNVX?editors=0100
+// Reqs IE/Edge fallback…
+// @URL: https://medium.com/@primozcigler/neat-trick-for-css-object-fit-fallback-on-edge-and-other-browsers-afbc53bbb2c3#.bs809jr8g
+// --------------------------------------------------------------------------
+
+// API
+//.object-fit_fill { object-fit: fill }
+//.object-fit_contain { object-fit: contain }
+//.object-fit_cover { object-fit: cover }
+//.object-fit_none { object-fit: none }
+//.object-fit_scale-down { object-fit: scale-down }
+
+@mixin ObjectFit(
+    $MixinFit: cover
+) {
+	//@include baseTransition;
+    height: 100%;
+    object-fit: $MixinFit;
+    width: 100%;
+}
+
+.o-fitImageCover { @include ObjectFit(); }
+
+// For use with FlexEmbed. [Really?]
+.FlexEmbed-fitImage { @include ObjectFit(); }
+
+// To darken like 'CoverImage--dark'
+.FlexEmbed-content--dark {
+    &:before {
+        background-image: linear-gradient(to bottom, rgba( palette(brand), 1 ) 0%, rgba( palette(brand), 0.2 ) 100%);
+        background-blend-mode: multiply;
+        content: " ";
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        // z-index: -1;
+    }
+}

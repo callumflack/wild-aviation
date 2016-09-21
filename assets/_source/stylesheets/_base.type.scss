@@ -1,0 +1,61 @@
+
+
+// --------------------------------------------------------------------------
+//    TYPOGRAPHY ELEMENT SETTINGS
+// --------------------------------------------------------------------------
+
+
+/* uncss:ignore */
+h1, h2, h3, h4, h5, h6,
+blockquote,
+ul, ol, li, dl, dd
+p, address,
+table, time,
+form, fieldset, legend,
+figure, figcaption,
+table, th, td, caption
+pre, small,
+em, b {
+	@include typeReset();
+}
+
+
+// Root styling to cascade thru
+// Moved to body, not :root, so that it's easier to use fontfaceonload.js
+// --------------------------------------------------------------------------
+
+html {
+	@include typeReset();
+	color: palette(text);
+	font-family: $font-text-regular, $main-font-stack;
+	font-size: 100%;
+	line-height: $base-line-height-unit;
+	text-align: left;
+	//text-rendering: optimizeLegibility;
+    text-rendering: geometricPrecision;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+// Consistent vertical rhythm
+// --------------------------------------------------------------------------
+
+/* uncss:ignore */
+// h1, h2, h3, h4, h5, h6,
+// li,
+ul, ol, dl,
+blockquote, p, address,
+table, time,
+fieldset,
+pre {
+    &:not(:last-child) {
+        margin-bottom: $paragraphSpace * 0.75;
+    }
+
+    @include media-breakpoint-up(sm) {
+        &:not(:last-child) {
+            margin-bottom: $paragraphSpace;
+        }
+    }
+}

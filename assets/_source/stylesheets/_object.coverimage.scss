@@ -1,0 +1,63 @@
+
+
+// --------------------------------------------------------------------------
+// COMPONENT: COVER IMAGE
+// @URL: http://nicolasgallagher.com/flexible-css-cover-images/
+// --------------------------------------------------------------------------
+
+
+// 1. To enable use w/ '.FlexEmbed'
+@mixin coverImage($darkInside: false) {
+	@include baseTransition;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: block;
+	height: 100%; // 1.
+	// max-height: rem(600);
+	margin: 0 auto;
+	// position: relative;
+	width: 100%;
+
+	@if $darkInside {
+		&:before {
+			@include o-posFullScreen(absolute);
+			background-image: linear-gradient(to bottom, rgba( palette(brand), 1 ) 0%, rgba( palette(brand), 0.2 ) 100%);
+			background-blend-mode: multiply;
+			content: " ";
+			opacity: 1;
+			// z-index: -1;
+		}
+
+	} @else {
+		content: none;
+	}
+
+	// in case the .o-coverImage is itself a link
+	&#{a} {
+		// @include u-link(none);
+	}
+
+	@include media-breakpoint-up(sm) {
+
+	}
+}
+
+.o-coverImage {
+	@include coverImage();
+}
+
+.o-coverImage--dark {
+	@include coverImage(true);
+}
+
+.o-coverImage--blends {
+	@include media-breakpoint-down(sm) {
+	    background-position-x: 0;
+	}
+}
+
+.o-containImage {
+	@include coverImage();
+	background-size: contain;
+}
