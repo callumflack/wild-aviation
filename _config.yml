@@ -7,18 +7,19 @@
 
 # Site settings
 # For SEO, see: https://github.com/jekyll/jekyll-seo-tag
+# Keep descriptions to ~155 characters: https://moz.com/learn/seo/meta-description
 title: Wild Aviation Services
 description: |
-    Wild Aviation Services represent the best of Aftermarket Dash-8 parts. With years of logistics and material handling experience and aviation ownership, our warehouse is stocked and staffed to ensure that service and parts availability is maintained to the highest standard, 24 hours per day, 7 days per week. Located within close proximity to the domestic and international airports in Cairns, Australia, freight consignment worldwide is available. This unique combination of technical expertise, and first-hand experience on what it is like to keep aircraft flying is the foundation of all our offerings.
+    Wild Aviation Services provides Aftermarket Dash-8 service and parts for Oceania and worldwide from Cairns Australia, 24/7. Logistics, material handling and aviation ownership experience.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://wildaviationservices.com.au" # the base hostname & protocol for your site
 imageurl: "/assets/images/"
 javascriptsurl: "/assets/javascripts/"
-social:
-    instagram: https://instagram.com/callumflack
-twitter:
-    username: callumflack
 google-analytics: UA-
+twitter:
+    username: patternworks #twitter:site
+author:
+    twitter: patternworks #twitter:creator
 
 # Defaults
 
@@ -32,18 +33,19 @@ kramdown:
 
 # Build settings
 exclude:
-    - assets/_source
-    - CNAME
-    - Gemfile
-    - Gemfile.lock
-    - gulpfile.js
-    - node_modules
-    - package.json
-    - README.md
-    - TODO.md
+- assets/_source
+- CNAME
+- Gemfile
+- Gemfile.lock
+- gulpfile.js
+- node_modules
+- package.json
+- README.md
+- TODO.md
+- DECRIPTION.md
 
 # Plugin settings
 gems:
-    - jekyll-feed
-    - jekyll-sitemap
-    - jekyll-seo-tag
+- jekyll-feed
+- jekyll-sitemap
+- jekyll-seo-tag

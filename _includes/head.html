@@ -5,15 +5,25 @@
 
     {% seo title=false %}
     <title>{% if page.url != '/' %}{{ page.title }} | {% endif %}{{ site.title }}, Cairns Australia</title>
-    <meta name="author", content="Callum Flack" >
-    <meta name="handheldfriendly", content="true" >
-    <meta name="mobileoptimized", content="320" >
+
+    {% comment %}
+    See: https://varvy.com/rel/author.html
+    I'm also using jekyll-seo to geenrate the twitter cards for Patternworks on here, cause why not?
+    {% endcomment %}
+    <link rel="author" href="http://patternworks.com.au">
 
     {% comment %}
     Unrequired because jekyll-seo manages it for us. But good to know the spec…
     <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
     <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    Full details: https://github.com/joshbuchea/HEAD
+
+    Also, you don't need:
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="MobileOptimized" content="320"/>
+    See: http://stackoverflow.com/questions/1988499/meta-tags-for-mobile-should-they-be-used
 
     Keep this for when you're ready for responsive images…
     {% include lazysize-scripts.html %}
