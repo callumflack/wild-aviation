@@ -35,7 +35,7 @@ sections:
         - Props
         - Components
 
-  - title: Delivery
+  - title: Worldwide Delivery
     background: delivery.jpg
     copy: |
         Wherever you are in the world, we are your aftermarket Dash-8 source, supply and support specialist.
