@@ -15,7 +15,7 @@
 }
 
 .c-hero {
-    //background-color: rgba( palette(brand-counter), 0.5 );
+    //background-color: rgba( palette(brand), 0.5 );
     //background-blend-mode: multiply;
     border: 1px solid palette(background);
 
@@ -89,7 +89,7 @@
     &.is-active {
         @include headerIn();
         background-color: rgba( palette(background), 1 );
-        //border-bottom: 1px solid rgba( palette(brand-counter), 0.1 );
+        //border-bottom: 1px solid rgba( palette(brand), 0.1 );
         box-shadow: 3px 3px space(1) 0px rgba( palette(text), 0.1 );
 
         @include media-breakpoint-down(sm) {
@@ -151,7 +151,7 @@
 		left: 0;
 		right: 100%;
 		bottom: 0;
-		background: palette(brand-counter);
+		background: palette(brand);
 		height: 4px;
 		transition-property: "right";
 		transition-duration: 250ms;
@@ -183,7 +183,7 @@
         padding: space(1) 0;
 
         @include on-event() {
-            color: palette(brand-counter);
+            color: palette(brand);
         }
     }
 
@@ -194,7 +194,7 @@
         }
 
         a {
-            color: palette(brand-counter);
+            color: palette(brand);
         }
     }
 }

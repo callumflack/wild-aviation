@@ -9,7 +9,7 @@
 
 @mixin headlineTemplate(
 	$mixinSize: headline,
-	$mixinColor: palette(brand-counter),
+	$mixinColor: palette(brand),
 	$mixinFont: $font-text-regular,
 	$mixinLetterSpacing: 0.01em,
 	$mixinLineHeight: 1.25,
