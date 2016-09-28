@@ -2,29 +2,24 @@
 wildaviation.surge.sh
 
 # next
-- production artwork:
-	- logo from vector
-	- product shots
-	- uncss, performant, etc
-- https://formspree.io/ submit the form & confirm email address
-- vh-buggyfill considering they'll have IE users?
-- form validation?
+- [✓] change colours to use current visual identity
+- [✓] change 'delivery' header to 'worldwide dleivery'
+- [✓] add location and 1 x AOG contact number to header
+- production:
+	- [_] logo from vector
+	- [✓] product images
+	- [✓] uncss
+	- [_] pagespeedtest, etc?
+- [_] fix IE layout issue(s): vh-buggyfill or min-height?
+- [_] setup mailchimp for email newsletters
+- [_] make content updates from Janelle's supplied list below
+- [_] add T&Cs pages, linked from footer
 - seo metas:
-	- remove twitter/fb 
-	- add logo & image
-	- add google-site-verification?
-+
-- change colours to use current visual identity on business cards & website
-- add location and 1 x AOG contact number to header (map pin icon?)
-- make content updates from Janelle's supplied list below
-- change 'delivery' header to 'worldwide dleivery'
-- add T&Cs pages, linked from footer
-- website description & keywords is attached
-- setup mailchimp for email newsletters
-- fix IE layout issue(s)
+	- [_] add logo & image
+	- [_] add google-site-verification?
+	- [_] confirm site description
 
 # Janelle todo:
-- send high-res product images
 - send logo as vector artwork (.PDF, .EPS or .AI)
 - send portraits & details (perhaps with linkedin links?)
 - send any copy updates
@@ -33,12 +28,14 @@ wildaviation.surge.sh
 - send T&Cs
 
 # Go live
-- confirm forms
-- add google analytics
-- link search console
-- filter local IPs
+- [_] https://formspree.io/ submit & confirm
+- [_] add google analytics
+- [_] link search console
+- [_] filter local IPs
 
 # Later
+- form validation?
+- lazysizes?
 - client testimonials & logos
 - sale section: esp when expand to include more than just Dash-8 parts
 - email newsletter subscribe form

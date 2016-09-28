@@ -217,7 +217,7 @@ a > strong {
 }
 
 @include media-breakpoint-down(sm) {
-    span.u-smDown-hide {
+    .u-smDown-hide {
         display: none !important;
     }
 }

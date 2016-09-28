@@ -7,7 +7,7 @@
 
 @mixin buttonTheme() {
 	@include baseTransition();
-	border-color: palette(text);
+	border-color: palette(brand);
 	border-radius: 3px;
 	border-style: solid;
 	border-width: 1px;
@@ -48,7 +48,7 @@
 @mixin buttonText() {
     @include typeReset();
     @include textRg();
-    background-color: palette(text);
+    background-color: palette(brand);
     color: palette(background);
     font-family: $font-text-medium;
     line-height: map-fetch($button-height, base);
@@ -61,8 +61,8 @@
     //letter-spacing: 0.05em;
 
     @include on-event() {
-        background-color: palette(brand);
-        border-color: palette(brand);
+        background-color: darken(palette(brand),10%);
+        border-color: darken(palette(brand),10%);
         color: palette(white);
     }
 }

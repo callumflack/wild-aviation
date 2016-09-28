@@ -3,14 +3,16 @@
 // --------------------------------------------------------------------------
 //   FLEX ALIGNER OBJECT
 //   See: https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/
+//   1. If IE, must use height not min-height.
 // --------------------------------------------------------------------------
 
 
 @mixin o-aligner {
-	display: flex;
 	align-items: center;
-	min-height: 100%;
+    display: flex;
 	justify-content: center;
+    //min-height: 100%; // 1
+    height: 100%; // 1
 }
 
 @mixin o-aligner-item {

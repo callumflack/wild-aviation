@@ -16,12 +16,13 @@ sections:
   - title: Products
     panel: true
     images:
-    - parts-1.jpg
-    - parts-2.jpg
-    - parts-3.jpg
-    - parts-4.jpg
-    - parts-5.jpg
-    - parts-6.jpg
+    - Wild_Aviation_160315_014_VVV.jpg
+    - Wild_Aviation_160315_053_VVV.jpg
+    - Wild_Aviation_160315_054_VVV.jpg
+    - Wild_Aviation_160315_055_VVV.jpg
+    - Wild_Aviation_160315_058_VVV.jpg
+    - Wild_Aviation_160315_062_VVV.jpg
+    - Wild_Aviation_160315_065_VVV.jpg
     copy: |
         Wild Aviation Services specialises in Aftermarket Dash-8 parts, shipping globally. We supply parts for 100s, 200s and 300s with expansion to other types of aircraft.
 
@@ -42,7 +43,9 @@ sections:
 
         We offer a 24/7 service and you will have our absolute focus and commitment to delivering what you need on time.
 
-        For 24/7 Aircraft on Ground (AOG) support, please contact: <a href="tel:+610 409 263 767">(+61) 409 263 767</a> or <a href="tel:+610 409 884 419">(+61) 409 884 419</a>
+        For 24/7 Aircraft on Ground (AOG) support, please contact:
+
+        <a href="tel:+610 409 263 767">(+61) 0409 263 767</a> or <a href="tel:+610 409 884 419">(+61) 0409 884 419</a>
 
   - title: Service Delivery Values
     copy: |
@@ -82,7 +85,7 @@ sections:
         170 - 182 Mayers Street, Cairns QLD 4870
 
         Email: [sales@wildholdings.com.au](sales@wildholdings.com.au)<br>
-        Telephone: <a href="tel:+61 07 4032 5890">(+61) 7 4032 5890</a>
+        Telephone: <a href="tel:+61 07 4032 5890">(+61) 07 4032 5890</a>
 
-        AOG Lines: <a href="tel:+610 409 263 767">(+61) 409 263 767</a> or <a href="tel:+610 409 884 419">(+61) 409 884 419</a>
+        AOG Lines: <a href="tel:+610 409 263 767">(+61) 0409 263 767</a> or <a href="tel:+610 409 884 419">(+61) 0409 884 419</a>
 ---

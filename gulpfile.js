@@ -253,7 +253,7 @@ gulp.task( 'minify:css', function () {
 			html: [
 				'_includes/*.html',
 				'_layouts/*.html',
-				'*.html'
+				'_site/**/*.html'
 			],
 			uncssrc: '.uncssrc'
 		} ) )

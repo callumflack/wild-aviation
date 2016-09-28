@@ -55,16 +55,37 @@
     }
 }
 
-.c-header .c-headline,
-.c-header .c-nav-item {
-    color: palette(white);
-}
-
-.c-header .c-headline {
+.c-header-typeBlock {
     margin: 0;
 
     @include media-breakpoint-down(sm) {
         padding: space(0.9) space(1);
+    }
+}
+
+.c-header .c-headline,
+.c-header .c-nav-item {
+    color: palette(background);
+}
+
+.c-header-meta {
+    @include textSm();
+    color: palette(background);
+    font-family: $font-text-medium;
+    margin-top: space(0.5);
+
+    span,
+    a {
+        color: currentColor;
+    }
+
+    span + a {
+        margin-left: space(0.75);
+    }
+
+    .o-icon {
+        margin-right: space(0.15);
+        margin-top: -2px;
     }
 }
 
