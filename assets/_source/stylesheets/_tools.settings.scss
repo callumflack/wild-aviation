@@ -35,9 +35,9 @@ $palette: (
 	neutral                    : #F3F2F1,
 	neutral-dark               : darken(#f0eeeb, 9%),
 	neutral-light              : lighten(#f0eeeb, 4%),
-	brand                      : #00abff,
+	brand                      : #006dbc,
 	brand-complement           : #fff59f,
-	brand-counter              : #a67c52,
+	brand-counter              : #00abff,
 	modal-background           : #151515,
 	warning                    : #FFD40C,
 	bad-news                   : #C60C0C,
@@ -98,9 +98,9 @@ $container-max-widths: (
 
 $fontsizes: (
 	text--sm: (
-		xs            : 11px,
-		sm            : 15px,
-        lg            : 17px
+		xs            : 10.5px,
+		sm            : 14px,
+        lg            : 16px
 	),
 	text: (
 		xs            : 16px,
