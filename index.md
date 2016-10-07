@@ -24,7 +24,7 @@ sections:
     - Wild_Aviation_160315_062_VVV.jpg
     - Wild_Aviation_160315_065_VVV.jpg
     copy: |
-        Wild Aviation Services specialises in Aftermarket Dash-8 parts, shipping globally. We supply parts for 100s, 200s and 300s with expansion to other types of aircraft.
+        Wild Aviation Services specialises in Aftermarket Dash-8 parts, shipping globally. We supply parts for 100s, 200s and 300s with expansion to other types of aircraft. All parts are purchased from reliable approved sources.
 
         We will quote on all of your requirements so just ask our friendly team. Parts are covered by warranty, fully traceable and with the certification required by your regulating authority.
 
@@ -35,6 +35,9 @@ sections:
         - Landing Gear
         - Props
         - Components
+        - Engine Components
+
+        All of our inventory is listed on [ilsmart.com](http://www.ilsmart.com/) and [stockmarket.aero](http://www.stockmarket.aero/)
 
   - title: Worldwide Delivery
     background: delivery.jpg
@@ -50,7 +53,7 @@ sections:
   - title: Service Delivery Values
     copy: |
         ### EXPERIENCE
-        We have over [#] years’ experience in aviation ownership and spare parts management and delivery.
+        We have over 60 years combined experience in aviation ownership and spare parts management and delivery.
 
         ### UNDERSTAND YOUR NEEDS
         We know that aircraft on ground costs money and we know you’ll need spare parts ASAP. Our team will go above and beyond to understand your needs and source and deliver parts on time.
