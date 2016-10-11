@@ -87,11 +87,25 @@ layout: default
                         {% endfor %}
                     </figure>
                 {% endif %}
+
                 <div class="Grid Grid--withGutter">
                     <div class="Grid-cell u-sm-size3of12">
                         <h2 class="">{{ section.title |  }}</h2>
                     </div>
                     <div class="Grid-cell u-sm-size9of12">
+                        {% if section.team %}
+                            <div class="c-team">
+                                <div class="Grid Grid--withGutter">
+                                    {% for member in site.data.team %}
+                                        <div class="Grid-cell u-size4of12">
+                                            <img src="{{ site.imageurl }}{{ member.name | downcase | replace: ' ', '-' }}.jpg" alt="{{ member.name }}">
+                                            <h3 class="">{{ member.name }}</h3>
+                                            <p class="">{{ member.title }}</p>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
                         <div class="s-section">
                             {{ section.copy | markdownify }}
                             {% if section.form %}
@@ -99,7 +113,6 @@ layout: default
                             {% endif %}
                         </div>
                     </div>
-
 
                 </div>
             </div>

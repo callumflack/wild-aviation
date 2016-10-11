@@ -6,11 +6,14 @@ wildaviation.surge.sh
 - [✓] change 'delivery' header to 'worldwide dleivery'
 - [✓] add location and 1 x AOG contact number to header
 - production:
-	- [_] logo from vector
+	- [✓] logo from vector
 	- [✓] product images
 	- [✓] uncss
+	- [_] artwork & squash portraits
 	- [_] pagespeedtest, etc?
-- [_] fix IE layout issue(s): vh-buggyfill or min-height?
+- [_] fix IE layout issue(s): 
+	- [_] IE9 stylesheet
+	- [_] vh-buggyfill or min-height?
 - [_] setup mailchimp for email newsletters
 - [_] make content updates from Janelle's supplied list below
 - [_] add T&Cs pages, linked from footer

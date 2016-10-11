@@ -82,6 +82,7 @@ sections:
         Please email: [sales@wildholdings.com.au](sales@wildholdings.com.au)
 
   - title: Contact Us
+    team: true
     form: true
     copy: |
         Building 9, Bohemia Industrial Estate,<br>

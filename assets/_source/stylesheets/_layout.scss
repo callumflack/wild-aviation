@@ -274,6 +274,29 @@
 
 
 
+
+// Portraits
+// --------------------------------------------------------------------------
+
+.c-team {
+    margin-bottom: $blockSpace * 0.5;
+
+    h3 {
+        margin-top: space(0.4);
+    }
+
+    h3 + p {
+        margin-top: 0;
+    }
+
+    p {
+        @include textSm(); color: palette(medium);
+    }
+
+
+}
+
+
 // Footer
 // --------------------------------------------------------------------------
 
@@ -300,17 +323,21 @@
 // quick spacers
 // --------------------------------------------------------------------------
 
+.u-spaceB        { margin-bottom: $blockSpace * 0.5; }
+
+
+
 //.u-spaceTD2    { margin-top: space(0.5); }
 //.u-spaceT      { margin-top: space(1); }
 //.u-spaceT2     { margin-top: space(2); }
 //.u-spaceB      { margin-bottom: space(1); }
 //.u-spaceB2     { margin-bottom: space(2); }
-//
+
 //.u-sm-spaceT   { @include media-breakpoint-down(sm) { margin-top: space(1); } }
 //.u-sm-spaceT2  { @include media-breakpoint-down(sm) { margin-top: space(2); } }
 //.u-sm-spaceTD2 { @include media-breakpoint-down(sm) { margin-top: space(0.5); } }
-//
+
 //.u-lg-spaceT   { @include media-breakpoint-down(lg) { margin-top: space(1); } }
 //.u-lg-spaceTD2 { @include media-breakpoint-down(lg) { margin-top: space(0.5); } }
-//
+
 //.u-xl-spaceT   { @include media-breakpoint-down(xl) { margin-top: space(1); } }
