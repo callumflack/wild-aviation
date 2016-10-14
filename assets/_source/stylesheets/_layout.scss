@@ -230,13 +230,8 @@
 }
 
 .c-section {
-    min-height: 60vh;
     padding: $blockSpace 0;
     position: relative;
-
-    @include media-breakpoint-up(sm) {
-        min-height: 800px;
-    }
 }
 
 .c-section--panel {
@@ -244,6 +239,12 @@
 }
 
 .c-section--reverse {
+    min-height: 60vh;
+
+    @include media-breakpoint-up(sm) {
+        min-height: 800px;
+    }
+
     h2,
     p,
     li,

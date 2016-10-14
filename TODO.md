@@ -1,3 +1,8 @@
+# admin
+DNS managed by DNSimple.
+served by zeit
+zeit current build = 8w0foSEjqPvTzv9uvRL5LfMI / https://ns-jfxjpefmff.now.sh
+
 # staging
 wildaviation.surge.sh
 
@@ -11,7 +16,7 @@ wildaviation.surge.sh
 	- [✓] uncss
 	- [_] artwork & squash portraits
 	- [_] pagespeedtest, etc?
-- fix IE layout issue(s): 
+- fix IE layout issue(s):
 	- [_] IE9 stylesheet
 	- [_] vh-buggyfill or min-height?
 - [✓] make content updates from Janelle's supplied list below

@@ -43,7 +43,7 @@ exclude:
 - package.json
 - README.md
 - TODO.md
-- DECRIPTION.md
+- DESCRIPTION.md
 
 # Plugin settings
 gems:
