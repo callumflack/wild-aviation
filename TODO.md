@@ -1,10 +1,11 @@
 # admin
-DNS managed by DNSimple.
+Domain registrar aussiehq (see project file)
+DNS managed by DNSimple
 served by zeit
-zeit current build = 8w0foSEjqPvTzv9uvRL5LfMI / https://ns-jfxjpefmff.now.sh
 
 # staging
 wildaviation.surge.sh
+next round, probably use zeit
 
 # next
 - [✓] change colours to use current visual identity
@@ -14,18 +15,20 @@ wildaviation.surge.sh
 	- [✓] logo from vector
 	- [✓] product images
 	- [✓] uncss
-	- [_] artwork & squash portraits
-	- [_] pagespeedtest, etc?
+	- [✓] artwork & squash all images
+	- [✓] https://developers.google.com/speed/pagespeed/insights 
+	- [✓] other perf things? OK for now
 - fix IE layout issue(s):
 	- [_] IE9 stylesheet
 	- [_] vh-buggyfill or min-height?
-- [✓] make content updates from Janelle's supplied list below
-- [_] setup mailchimp for email newsletters
-- [_] add T&Cs pages, linked from footer
+- content:
+	- [✓] make content updates from Janelle's supplied list below
+	- [_] add T&Cs pages, linked from footer
 - seo metas:
-	- [_] add logo & image
+	- [_] add logo & image: https://github.com/jekyll/jekyll-seo-tag
 	- [_] google-site-verification / webmaster / analytics setups
 	- [_] confirm site description
+- [_] setup mailchimp for email newsletters
 
 # Janelle todo:
 - [✓] send logo as vector artwork (.PDF, .EPS or .AI)
