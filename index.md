@@ -81,12 +81,19 @@ sections:
 
         Please email: [sales@wildholdings.com.au](sales@wildholdings.com.au)
 
+  - title: Quality
+    panel: true
+    copy: |
+        Wild Aviation Services recognises the importance of Quality Control and Quality Assurance in Aviation. With experience and a background in previously obtaining and managing Part 145 approval, this knowledge comprising of the above areas, has been transferred and documented into our Quality Management Manual. We understand the quality requirements that are expected by our customers and ourselves and will ensure we provide this support.
+
+        We are in the process of submitting applications for accreditation through various Aviation and Quality - Voluntary Accreditation Programs.
+
   - title: Contact Us
     team: true
     form: true
     copy: |
-        Building 9, Bohemia Industrial Estate,<br>
-        170 - 182 Mayers Street, Cairns QLD 4870
+        Building 9, Bohemia Industrial Estate, <span class="u-sm-lineBreak">
+        170-182 Mayers Street, Cairns QLD 4870</span>
 
         Email: [sales@wildholdings.com.au](sales@wildholdings.com.au)<br>
         Telephone: <a href="tel:+61 07 4032 5890">(+61) 07 4032 5890</a>
