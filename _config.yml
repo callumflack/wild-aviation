@@ -16,7 +16,7 @@ url: "http://wildaviationservices.com.au" # the base hostname & protocol for you
 logo: "/assets/images/logo.png"
 imageurl: "/assets/images/"
 javascriptsurl: "/assets/javascripts/"
-google-analytics: UA-
+google-analytics: UA-86264745-1
 twitter:
     username: patternworks #twitter:site
 author:
