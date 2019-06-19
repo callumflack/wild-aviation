@@ -47,7 +47,7 @@ exclude:
 - DESCRIPTION.md
 
 # Plugin settings
-gems:
+plugins:
 - jekyll-feed
 - jekyll-sitemap
 - jekyll-seo-tag
