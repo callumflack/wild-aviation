@@ -1,37 +1,37 @@
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {% seo title=false %}
-    <title>{% if page.url != '/' %}{{ page.title }} | {% endif %}{{ site.title }}, Cairns Australia</title>
+  {% seo title=false %}
+  <title>{% if page.url != '/' %}{{ page.title }} | {% endif %}{{ site.title }}, Cairns Australia</title>
 
-    {% comment %}
-    See: https://varvy.com/rel/author.html
-    I'm also using jekyll-seo to generate the twitter cards for Patternworks on here, cause why not?
-    {% endcomment %}
-    <link rel="author" href="http://patternworks.com.au">
+  {% comment %}
+  See: https://varvy.com/rel/author.html
+  I'm also using jekyll-seo to generate the twitter cards for Patternworks on here, cause why not?
+  {% endcomment %}
+  <link rel="author" href="http://callumflack.design">
 
-    {% comment %}
-    Unrequired because jekyll-seo manages it for us. But good to know the spec…
-    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  {% comment %}
+  Unrequired because jekyll-seo manages it for us. But good to know the spec…
+  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
-    Full details: https://github.com/joshbuchea/HEAD
+  Full details: https://github.com/joshbuchea/HEAD
 
-    Also, you don't need:
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="MobileOptimized" content="320"/>
-    See: http://stackoverflow.com/questions/1988499/meta-tags-for-mobile-should-they-be-used
+  Also, you don't need:
+  <meta name="HandheldFriendly" content="true"/>
+  <meta name="MobileOptimized" content="320"/>
+  See: http://stackoverflow.com/questions/1988499/meta-tags-for-mobile-should-they-be-used
 
-    Keep this for when you're ready for responsive images…
-    {% include lazysize-scripts.html %}
-    {% include lazysize-styles.html %}
-    {% endcomment %}
+  Keep this for when you're ready for responsive images…
+  {% include lazysize-scripts.html %}
+  {% include lazysize-styles.html %}
+  {% endcomment %}
 
-    <link rel="stylesheet" href="{{ "/assets/stylesheets/application.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/assets/styles/application.css" | prepend: site.baseurl }}">
 
-    {% feed_meta %}
+  {% feed_meta %}
 
 </head>
