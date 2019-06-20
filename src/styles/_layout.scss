@@ -133,7 +133,7 @@
 }
 
 .c-nav {
-    @include listInline();
+    // @include listInline();
     display: flex;
     justify-content: space-between;
     //margin-bottom: auto;
