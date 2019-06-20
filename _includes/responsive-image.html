@@ -1,17 +1,17 @@
 {% assign alt = image.path | remove:'/designs-rg/' | remove:'.jpg' | replace: '-', ' ' %}
 
 <img
-    class="o-fitImageCover lazyload ls-blur{% if absolute == true %} o-posAbsoluteCenter{% endif %}"
-    alt="{{ alt }}"
-    src="{{ site.imageurl }}{{ image }}"
-    />
+  class="o-fitImageCover lazyload ls-blur{% if absolute == true %} o-posAbsoluteCenter{% endif %}"
+  alt="{{ alt }}"
+  src="{{ site.imageurl }}{{ image }}"
+/>
 
 {% comment %}
 <img
-    class="FlexEmbed-fitImage lazyload ls-blur{% if absolute == true %} u-posAbsoluteCenter{% endif %}"
-    alt="{{ alt }}"
-    src="{{ image }}-src.jpg"
-    data-sizes="auto"
-    data-srcset="{{ image }}-src.jpg 300w, {{ image }}-xs.jpg 900w, {{ image }}.jpg 1800w"
-    />
+  class="FlexEmbed-fitImage lazyload ls-blur{% if absolute == true %} u-posAbsoluteCenter{% endif %}"
+  alt="{{ alt }}"
+  src="{{ image }}-src.jpg"
+  data-sizes="auto"
+  data-srcset="{{ image }}-src.jpg 300w, {{ image }}-xs.jpg 900w, {{ image }}.jpg 1800w"
+  />
 {% endcomment %}
