@@ -12,7 +12,7 @@ title: Wild Aviation Services
 description: |
     Wild Aviation Services provides Aftermarket Dash-8 service and parts for Oceania and worldwide from Cairns Australia, 24/7. Logistics, material handling and aviation ownership experience.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://wildaviationservices.com.au" # the base hostname & protocol for your site
+url: "https://wildaviationservices.com.au" # the base hostname & protocol for your site
 logo: "/assets/images/logo.png"
 imageurl: "/assets/images/"
 javascriptsurl: "/assets/javascripts/"
