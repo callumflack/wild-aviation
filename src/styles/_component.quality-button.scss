@@ -1,0 +1,34 @@
+.Quality-button {
+  margin-top: space(0.75);
+
+  @include media-breakpoint-up(xs) {
+    margin-top: space(1);
+  }
+}
+
+.Quality-button a {
+  @include textSm();
+  align-items: center;
+  background-color: palette(brand);
+  border: 2px solid palette(brand);
+  border-radius: 3px;
+  color: white;
+  display: inline-flex;
+  font-weight: 600;
+  height: 60px;
+  margin-bottom: 0;
+
+  @include media-breakpoint-up(xs) {
+    height: 90px;
+  }
+}
+
+.Quality-button img {
+  height: 100%;
+  margin: 0;
+  width: auto;
+}
+
+.Quality-button span {
+  padding: 0 space(1);
+}
