@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://wildaviation.netlify.com/* https://www.wildaviation.com.au/:splat 301!
