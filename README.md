@@ -4,5 +4,7 @@
 
 ## Setup
 
-`$ bundle install`
-`$ npm install`
+- `$ bundle install`
+- `$ yarn`
+- `jekyll serve`
+- Run sass with `gulp sass`
