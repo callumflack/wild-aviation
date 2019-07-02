@@ -68,6 +68,8 @@ sections:
     button: true
     panel: true
     copy: |
+        Wild Aviation Services recognises the importance of Quality Control and Quality Assurance in Aviation. With experience and a background in previously obtaining and managing Part 145 approval, this knowledge comprising of the above areas, has been transferred and documented into our Quality Assurance Manual. We understand the quality requirements that are expected by our customers and ourselves and will ensure we provide this support.
+
         Wild Aviation Services Quality System has been recognised and certified by the Aviation Suppliers Association with ASA-100 Accreditation and meets the requirements of the FAA’s Advisory Circular AC-00-56.
 
         We continually review and improve our quality standards to ensure we are always providing the most reliable and current quality assurance services for our customers.
@@ -88,13 +90,6 @@ sections:
         We are also interested in stock acquisitions and are not limited to Dash 8 aircraft.
 
         Please email: [sales@wildholdings.com.au](sales@wildholdings.com.au)
-
-  - title: Quality
-    panel: true
-    copy: |
-        Wild Aviation Services recognises the importance of Quality Control and Quality Assurance in Aviation. With experience and a background in previously obtaining and managing Part 145 approval, this knowledge comprising of the above areas, has been transferred and documented into our Quality Management Manual. We understand the quality requirements that are expected by our customers and ourselves and will ensure we provide this support.
-
-        We are in the process of submitting applications for accreditation through various Aviation and Quality - Voluntary Accreditation Programs.
 
   - title: Contact Us
     team: true
